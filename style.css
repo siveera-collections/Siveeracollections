@@ -1,92 +1,108 @@
-
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Reset styles and box-sizing */
+* {
   margin: 0;
   padding: 0;
-  background: #fff;
-  color: #222;
+  box-sizing: border-box;
 }
 
-header, section {
-  padding: 40px 20px;
-  text-align: center;
+/* Body base styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+  overflow-x: hidden;
 }
 
-/* ===== Hero Section ===== */
+/* Header and hero */
 .hero {
   background: url('Diwali Sale Banner in Dark Green Gold Cream Modern Luxe Style (1).png') no-repeat center center/cover;
-  height: 90vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
   text-align: center;
+  padding: 20px;
+  color: #fff;
 }
 
 .hero h1 {
-  font-size: 3em;
-  margin: 0;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
 .hero p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
+  font-size: 1.2rem;
 }
 
-/* ===== Buttons ===== */
 .button {
-  background: #e91e63;
-  color: white;
-  padding: 12px 25px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
   display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #e91e63;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
   transition: background 0.3s ease;
 }
 
 .button:hover {
-  background: #c2185b;
+  background-color: #c2185b;
 }
 
-/* ===== Navbar ===== */
-.navbar {
-  background: #f5f5f5;
-  padding: 10px 0;
-  margin-bottom: 30px;
+/* Navigation */
+nav {
+  margin: 20px 0;
+  text-align: center;
 }
 
-.navbar a {
-  color: #333;
-  margin: 0 12px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.navbar a.active,
-.navbar a:hover {
+nav a {
   color: #e91e63;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
   text-decoration: underline;
 }
 
-/* ===== Category Grid ===== */
+/* Section styles */
+section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Category grid */
 .category-grid {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
+  justify-content: center;
+  gap: 20px;
   padding: 20px;
 }
 
 .category-item {
-  width: 250px;
+  width: 100%;
+  max-width: 300px;
+  background: #fafafa;
   border: 1px solid #ddd;
   border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  padding: 10px;
+  transition: transform 0.3s ease;
 }
 
 .category-item:hover {
@@ -95,92 +111,56 @@ header, section {
 
 .category-item img {
   width: 100%;
-  height: auto;
-  display: block;
+  border-radius: 8px;
 }
 
 .category-item h3 {
-  padding: 15px 10px;
-  font-size: 1.1em;
-  color: #444;
+  margin-top: 10px;
+  color: #333;
 }
 
-/* ===== About Page ===== */
-.about-section {
-  max-width: 800px;
-  margin: auto;
-  text-align: left;
-  line-height: 1.8;
-  padding: 20px;
-}
-
-.mission-vision {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
-  background: #f9f9f9;
-}
-
-.mv-box {
-  max-width: 300px;
-  margin: 10px;
-  padding: 15px;
-  border-left: 4px solid #e91e63;
-  background: white;
-}
-
-/* ===== Contact Page ===== */
-.contact-section {
-  padding: 40px 20px;
-}
-
-.contact-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.contact-box {
-  background: #f4f4f4;
-  border-radius: 10px;
-  padding: 20px;
-  width: 250px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-/* ===== Footer ===== */
+/* Footer */
 footer {
-  background: #111;
-  color: white;
+  background-color: #111;
+  color: #fff;
   padding: 20px;
   text-align: center;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
-/* ===== Responsive Design ===== */
+/* Contact Info */
+.contact-info p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2em;
+    font-size: 2rem;
   }
 
-  .category-grid,
-  .contact-boxes,
-  .mission-vision {
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 10px 5px;
+    font-size: 0.95rem;
+  }
+
+  .category-grid {
     flex-direction: column;
     align-items: center;
   }
 
-  .navbar a {
-    display: inline-block;
-    margin: 8px 6px;
-  }
-
-  .category-item,
-  .contact-box,
-  .mv-box {
-    width: 90%;
+  .category-item {
+    max-width: 90%;
   }
 }
