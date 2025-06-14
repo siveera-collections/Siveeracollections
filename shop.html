@@ -1,41 +1,121 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop by Category – Siveera Collection's</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #e91e63;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      background-color: #f8f8f8;
+      padding: 10px;
+    }
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      background: #ddd;
+    }
+    nav a:hover {
+      background: #ccc;
+    }
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .category-item {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .category-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .category-item h3 {
+      margin: 10px 0 5px;
+    }
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Shop by Category</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="new.html">New Arrivals</a>
-      <a href="offers.html">Offers</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="new.html">New Arrivals</a>
+    <a href="offers.html">Offers</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
   <section class="category-grid">
     <div class="category-item">
-      <img src="WhatsApp Image 2025-06-13 at 17.47.43_e1328da8.jpg" alt="Ricco Pattu">
+      <img src="images/ricco.jpg" alt="Ricco Pattu Sarees">
       <h3>Ricco Pattu Sarees</h3>
     </div>
     <div class="category-item">
-      <img src="WhatsApp Image 2025-06-13 at 17.47.44_6dbf7aa5.jpg" alt="Lenin Cotton">
-      <h3>Lenin Cotton</h3>
+      <img src="images/dola.jpg" alt="Dola Zari Sarees">
+      <h3>Dola Zari Weaving</h3>
     </div>
     <div class="category-item">
-      <img src="WhatsApp Image 2025-06-13 at 17.47.44_7ddb7864.jpg" alt="Dola Zari">
-      <h3>Dola Zari Weaving</h3>
+      <img src="images/lenin.jpg" alt="Lenin Cotton Sarees">
+      <h3>Lenin Cotton Sarees</h3>
+    </div>
+    <div class="category-item">
+      <img src="images/banarasi.jpg" alt="Banarasi Sarees">
+      <h3>Banarasi Sarees</h3>
+    </div>
+    <div class="category-item">
+      <img src="images/softsilk.jpg" alt="Soft Silk Sarees">
+      <h3>Soft Silk Sarees</h3>
+    </div>
+    <div class="category-item">
+      <img src="images/chiffon.jpg" alt="Chiffon Sarees">
+      <h3>Chiffon Sarees</h3>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Siveera Collection's. WhatsApp: 9966191975 | Instagram: @siveeracollections
+    &copy; 2025 Siveera Collection's | WhatsApp: 9966191975 | Instagram: @siveeracollections
   </footer>
 </body>
 </html>
