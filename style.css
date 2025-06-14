@@ -1,46 +1,22 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-}
-header, section {
-  padding: 40px 20px;
-  text-align: center;
-}
-.hero {
-  background: url('banarasi-saree-design-background_150574-54.webp') no-repeat center center/cover;
-  height: 90vh;
+.offers-section {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-.button {
-  background: #e91e63;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-}
-.category-grid {
-  display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
+  padding: 40px 20px;
 }
-.category-item {
-  width: 200px;
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-.category-item img {
-  width: 100%;
-  height: auto;
-}
-footer {
-  background: #111;
-  color: white;
+
+.offer-card {
+  width: 300px;
+  background: #fce4ec;
+  border-radius: 10px;
   padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.offer-card img {
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
 }
