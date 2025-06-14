@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Contact Us – Siveera Collection's</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
   <header>
@@ -18,13 +19,27 @@
     </nav>
   </header>
 
-  <section>
-    <p>📞 WhatsApp us at: <strong>9966191975</strong></p>
-    <p>📸 Follow on Instagram: <strong>@siveeracollections</strong></p>
+  <section class="contact-container">
+    <div class="contact-box">
+      <h2>Reach Us</h2>
+      <p>📞 WhatsApp: <a href="https://wa.me/919966191975" target="_blank">9966191975</a></p>
+      <p>📸 Instagram: <a href="https://instagram.com/siveeracollections" target="_blank">@siveeracollections</a></p>
+      <p>📬 Email: <a href="mailto:siveeracollections@gmail.com">siveeracollections@gmail.com</a></p>
+    </div>
+
+    <div class="contact-box">
+      <h2>Send a Message</h2>
+      <form action="#" method="post" onsubmit="alert('This is a demo form. Please contact via WhatsApp or Instagram.')">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
   </section>
 
   <footer>
-    &copy; 2025 Siveera Collection's. All rights reserved.
+    &copy; 2025 Siveera Collection's. WhatsApp: 9966191975 | Instagram: @siveeracollections
   </footer>
 </body>
 </html>
