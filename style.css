@@ -29,28 +29,52 @@ body {
   z-index: 999;
 }
 
-.site-header .container {
+.site-header .container,
+.nav-wrapper {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.logo {
-  font-size: 1.8rem;
+/* Logo Section */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-section img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e91e63;
+}
+
+.logo,
+.logo-section span {
+  font-size: 1.5rem;
   font-weight: 700;
   color: #e91e63;
 }
 
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
 .nav-links a {
-  margin: 0 12px;
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 
-.nav-links a.active,
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: #e91e63;
 }
 
@@ -60,7 +84,38 @@ body {
   font-size: 1.2rem;
 }
 
-/* Hero / Banner (used on all inner pages except homepage) */
+/* Hero Section - Homepage */
+.hero-home {
+  background: url('sivveracollections.jpg') no-repeat center center/cover;
+  padding: 100px 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 60px 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Hero / Banner for Inner Pages */
 .page-banner {
   background: url('White and Red Modern Saree Vlog YouTube Thumbnail.png') no-repeat center center/cover;
   color: white;
@@ -101,7 +156,7 @@ body {
   color: #777;
 }
 
-/* Product Grid */
+/* Product & Category Grid */
 .product-grid,
 .category-grid {
   display: grid;
@@ -122,7 +177,7 @@ body {
 
 .product-card:hover,
 .category-item:hover {
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .product-card img,
@@ -201,40 +256,6 @@ body {
   background: #d3185d;
 }
 
-/* Footer */
-.site-footer {
-  background: #fafafa;
-  text-align: center;
-  padding: 25px 20px;
-  font-size: 0.95rem;
-  border-top: 1px solid #eee;
-  color: #555;
-}
-
-.site-footer a {
-  color: #e91e63;
-  text-decoration: none;
-}
-
-/* Responsive Fixes */
-@media (max-width: 768px) {
-  .site-header .container {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .contact-section {
-    flex-direction: column;
-  }
-}
-
 /* About Page */
 .about-container {
   display: flex;
@@ -264,164 +285,7 @@ body {
   line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-  }
-}
-/* Homepage Only Hero */
-.hero-home {
-  background: url('siveeracollectionsimage.jpg') no-repeat center center/cover;
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
-  position: relative;
-}
-
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.4); /* Optional overlay */
-  padding: 60px 20px;
-}
-
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  z-index: 2;
-  position: relative;
-}
-
-.hero-content h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #e91e63;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: 0.3s ease;
-}
-
-.btn:hover {
-  background: #d3185d;
-} 
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Urbanist', sans-serif;
-  background-color: #fff;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Container Utility */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
-}
-
-/* Header */
-.site-header {
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-.nav-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.logo-section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-section img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #e91e63;
-}
-
-.logo-section span {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #e91e63;
-}
-
-/* Navigation Links */
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #e91e63;
-}
-
-/* Hero Section */
-.hero-home {
-  background: url('hero-banner.jpg') no-repeat center center/cover;
-  padding: 100px 20px;
-  color: white;
-  text-align: center;
-  position: relative;
-}
-
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 60px 20px;
-}
-
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  z-index: 2;
-  position: relative;
-}
-
-.hero-content h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -454,6 +318,7 @@ body {
 
 /* Responsive Fixes */
 @media (max-width: 768px) {
+  .site-header .container,
   .nav-wrapper {
     flex-direction: column;
     align-items: center;
@@ -469,5 +334,13 @@ body {
     justify-content: center;
     width: 100%;
     margin-bottom: 10px;
+  }
+
+  .contact-section {
+    flex-direction: column;
+  }
+
+  .about-content {
+    flex-direction: column;
   }
 }
