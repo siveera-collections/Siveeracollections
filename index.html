@@ -10,21 +10,17 @@
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container nav-wrapper">
-    <div class="logo-section">
-      <img src="Screenshot_2025_0615_233416.png" alt="Siveera Collections Logo" />
-      <span>Siveera Collection's</span>
-    </div>
-    <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="new.html">New Arrivals</a>
-      <a href="offers.html">Offers</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+<!-- Header Placeholder -->
+<div id="header-placeholder"></div>
+
+<!-- JavaScript to include header -->
+<script>
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+</script>
   
   <!-- Hero Section -->
 <section class="hero-home">
