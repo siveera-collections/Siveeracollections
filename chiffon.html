@@ -8,19 +8,17 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <div class="logo">Siveera Collection's</div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="shop.html" class="active">Shop</a>
-        <a href="new.html">New Arrivals</a>
-        <a href="offers.html">Offers</a>
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Header Placeholder -->
+<div id="header-placeholder"></div>
+
+<!-- JavaScript to include header -->
+<script>
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+</script>
 
   <section class="page-banner hero-small">
     <h1>Chiffon Sarees</h1>
