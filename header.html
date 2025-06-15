@@ -19,3 +19,16 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll('.nav-links a');
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    links.forEach(link => {
+      const linkHref = link.getAttribute("href");
+      if (linkHref === currentPage || (linkHref === "index.html" && currentPage === "")) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
