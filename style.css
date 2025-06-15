@@ -60,10 +60,9 @@ body {
   font-size: 1.2rem;
 }
 
-/* Hero / Banner */
-.hero,
+/* Hero / Banner (used on all inner pages except homepage) */
 .page-banner {
-  background: url('White and Red Modern Saree Vlog YouTube Thumbnail.png') no-repeat center center/cover;
+  background: url('category-banner.jpg') no-repeat center center/cover;
   color: white;
   text-align: center;
   padding: 80px 20px;
