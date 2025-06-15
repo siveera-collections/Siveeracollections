@@ -63,7 +63,7 @@ body {
 /* Hero / Banner */
 .hero,
 .page-banner {
-  background: url('WhatsApp Image 2025-06-15 at 18.09.31_b75f0b82.jpg') no-repeat center center/cover;
+  background: url('hero-banner.jpg') no-repeat center center/cover;
   color: white;
   text-align: center;
   padding: 80px 20px;
@@ -235,6 +235,8 @@ body {
     flex-direction: column;
   }
 }
+
+/* About Page */
 .about-container {
   display: flex;
   flex-direction: column;
