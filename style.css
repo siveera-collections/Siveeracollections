@@ -1,181 +1,183 @@
-/* Reset & base setup */
-*,
-*::before,
-*::after {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+  font-family: 'Urbanist', sans-serif;
   background-color: #fff;
   color: #333;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e91e63;
+}
+
+.nav-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #e91e63;
+}
+
+.nav-icons a {
+  margin-left: 15px;
+  color: #555;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.nav-icons a:hover {
+  color: #e91e63;
 }
 
 /* Hero Section */
-.hero {
-  background: url('Diwali Sale Banner in Dark Green Gold Cream Modern Luxe Style (1).png') no-repeat center center/cover;
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  color: #fff;
-  width: 100%;
+.hero-section {
+  background: url('Diwali Sale Banner in Dark Green Gold Cream Modern Luxe Style (1).png') center center/cover no-repeat;
+  height: 90vh;
+  position: relative;
 }
 
-/* Hero Text */
-.hero h1 {
-  font-size: 2.5rem;
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  color: #fff;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
   margin-bottom: 10px;
 }
 
-.hero p {
+.hero-content p {
   font-size: 1.2rem;
 }
 
-.button {
+.btn {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px 25px;
+  padding: 12px 30px;
   font-size: 1rem;
   background-color: #e91e63;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
+  color: white;
+  border-radius: 5px;
   text-decoration: none;
   transition: background 0.3s ease;
 }
 
-.button:hover {
+.btn:hover {
   background-color: #c2185b;
 }
 
-/* Navigation */
-nav {
-  margin: 20px 0;
+/* Intro Section */
+.intro-section {
   text-align: center;
-  flex-wrap: wrap;
-  width: 100%;
-  overflow-x: hidden;
+  padding: 60px 20px;
 }
 
-nav a {
-  color: #e91e63;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-}
-
-/* Main content section */
-section {
-  padding: 40px 20px;
-  text-align: center;
-  width: 100%;
-}
-
-/* Intro */
-.intro h2 {
+.intro-section h2 {
   font-size: 2rem;
   margin-bottom: 10px;
+  color: #e91e63;
 }
 
-.intro p {
+.intro-section p {
+  max-width: 600px;
+  margin: 0 auto;
   font-size: 1.1rem;
-  color: #555;
-}
-
-/* Category Grid */
-.category-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.category-item {
-  width: 100%;
-  max-width: 300px;
-  background: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 10px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.category-item:hover {
-  transform: translateY(-5px);
-}
-
-.category-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
-
-.category-item h3 {
-  margin-top: 10px;
-  color: #333;
-  font-size: 1.1rem;
+  color: #666;
 }
 
 /* Footer */
-footer {
-  background-color: #111;
+.site-footer {
+  background: #111;
   color: #fff;
-  padding: 20px;
+  padding: 30px 20px;
   text-align: center;
-  font-size: 0.9rem;
-  width: 100%;
-  overflow-x: hidden;
+  font-size: 0.95rem;
 }
 
-/* Contact Info */
-.contact-info p {
-  margin: 10px 0;
-  font-size: 1rem;
-}
-
-/* Mobile Responsive */
+/* Responsive */
 @media (max-width: 768px) {
-  .hero h1 {
+  .nav-links, .nav-icons {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    margin: 10px 8px;
+  }
+
+  .hero-content h1 {
     font-size: 2rem;
   }
 
-  .hero p {
+  .hero-content p {
     font-size: 1rem;
   }
 
-  .button {
+  .btn {
     padding: 10px 20px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
+}
 
-  nav a {
-    margin: 10px 5px;
-    font-size: 0.95rem;
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.6rem;
   }
-
-  .category-grid {
-    flex-direction: column;
-    align-items: center;
+  .hero-content p {
+    font-size: 0.9rem;
   }
-
-  .category-item {
-    max-width: 90%;
+  .logo {
+    font-size: 1.2rem;
   }
 }
