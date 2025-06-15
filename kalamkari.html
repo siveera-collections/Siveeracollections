@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kalamkari Sarees | Siveera Collection's</title>
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <header class="header">
+  <!-- Header -->
+  <header class="site-header">
     <div class="container">
-      <div class="logo"><a href="index.html">Siveera Collection's</a></div>
-      <nav>
+      <div class="logo">Siveera Collection's</div>
+      <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="shop.html" class="active">Shop</a>
         <a href="new-arrivals.html">New Arrivals</a>
@@ -19,38 +22,47 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
+      <div class="nav-icons">
+        <a href="#"><i class="fas fa-search"></i></a>
+        <a href="https://wa.me/919966191975"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+      </div>
     </div>
   </header>
 
-  <section class="section">
-    <h1 class="section-title">Kalamkari Sarees</h1>
-    <p class="section-subtitle">Artistic hand-painted and printed traditions from India</p>
+  <!-- Banner -->
+  <section class="page-banner">
+    <h1>Kalamkari Sarees</h1>
+    <p>Artistic hand-painted and printed traditions from India</p>
+  </section>
 
-    <div class="product-grid">
-      <!-- Product Cards -->
-      <div class="product-card">
-        <img src="images/kalamkari1.jpg" alt="Kalamkari Saree 1">
+  <!-- Product Grid -->
+  <section class="category-section">
+    <div class="category-grid">
+      <div class="category-item">
+        <img src="images/kalamkari1.jpg" alt="Floral Kalamkari Cotton Saree" />
         <h3>Floral Kalamkari Cotton Saree</h3>
-        <p class="price">₹1,299</p>
+        <p>₹1,299</p>
       </div>
-
-      <div class="product-card">
-        <img src="images/kalamkari2.jpg" alt="Kalamkari Saree 2">
+      <div class="category-item">
+        <img src="images/kalamkari2.jpg" alt="Peacock Print Kalamkari Saree" />
         <h3>Peacock Print Kalamkari Saree</h3>
-        <p class="price">₹1,399</p>
+        <p>₹1,399</p>
       </div>
-
-      <div class="product-card">
-        <img src="images/kalamkari3.jpg" alt="Kalamkari Saree 3">
+      <div class="category-item">
+        <img src="images/kalamkari3.jpg" alt="Traditional Temple Design Saree" />
         <h3>Traditional Temple Design Saree</h3>
-        <p class="price">₹1,499</p>
+        <p>₹1,499</p>
       </div>
     </div>
   </section>
 
-  <footer>
-    &copy; 2025 Siveera Collection's | WhatsApp: 9966191975 | Instagram: 
-    <a href="https://instagram.com/siveeracollections">@siveeracollections</a>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Siveera Collection's</p>
+    <p>📞 WhatsApp: <a href="https://wa.me/919966191975" style="color:#e91e63;">9966191975</a> |
+      📸 Instagram: <a href="https://instagram.com/siveeracollections" style="color:#e91e63;">@siveeracollections</a>
+    </p>
   </footer>
 
 </body>
