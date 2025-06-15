@@ -1,26 +1,21 @@
-/* Global Reset */
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  overflow-y: scroll;
-}
-
 body {
   font-family: 'Urbanist', sans-serif;
-  background: #fff;
+  background-color: #fff;
   color: #333;
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
-/* Container */
+/* Container Utility */
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
   padding: 0 20px;
 }
 
@@ -28,294 +23,215 @@ body {
 .site-header {
   background: #fff;
   border-bottom: 1px solid #eee;
-  height: 80px;
-  display: flex;
-  align-items: center;
+  padding: 15px 0;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
 }
 
 .site-header .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #e91e63;
 }
 
 .nav-links a {
-  margin: 0 10px;
+  margin: 0 12px;
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: 0.3s;
 }
 
+.nav-links a.active,
 .nav-links a:hover {
   color: #e91e63;
 }
 
 .nav-icons a {
-  margin-left: 15px;
-  color: #555;
-  font-size: 1.1rem;
-  transition: color 0.3s;
-}
-
-.nav-icons a:hover {
-  color: #e91e63;
-}
-
-/* Hero Section */
-.hero-section {
-  background: url('Diwali Sale Banner in Dark Green Gold Cream Modern Luxe Style (1).png') center center/cover no-repeat;
-  height: 90vh;
-  position: relative;
-}
-
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.4);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.hero-content {
-  color: #fff;
-  padding: 20px;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero-content p {
+  margin-left: 10px;
+  color: #333;
   font-size: 1.2rem;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 30px;
-  font-size: 1rem;
-  background-color: #e91e63;
+/* Hero / Banner */
+.hero,
+.page-banner {
+  background: url('images/banarasi-saree-design-background_150574-54.webp') no-repeat center center/cover;
   color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #c2185b;
-}
-
-/* Intro Section */
-.intro-section {
   text-align: center;
+  padding: 80px 20px;
+}
+
+.hero-small {
   padding: 60px 20px;
 }
 
-.intro-section h2 {
+.hero h1,
+.page-banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p,
+.page-banner p {
+  font-size: 1.1rem;
+}
+
+/* Section Styles */
+.section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.section-title {
   font-size: 2rem;
   margin-bottom: 10px;
   color: #e91e63;
 }
 
-.intro-section p {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  color: #666;
-}
-
-/* Category Grid (Shop Page) */
-.category-section {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.category-section h2 {
-  font-size: 2rem;
+.section-subtitle {
+  font-size: 1rem;
   margin-bottom: 30px;
-  color: #333;
-}
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-}
-
-.category-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  color: #111;
-  transition: transform 0.3s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-5px);
-}
-
-.category-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.category-card h3 {
-  padding: 15px;
-  font-size: 1.1rem;
-  background-color: #f7f7f7;
+  color: #777;
 }
 
 /* Product Grid */
-.product-grid {
+.product-grid,
+.category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 40px 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
 }
 
-.product-card {
+.product-card,
+.category-item {
   background: #fff;
   border: 1px solid #eee;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
+  transition: 0.3s ease;
   text-align: center;
-  transition: transform 0.3s;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
+.product-card:hover,
+.category-item:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.product-card img {
+.product-card img,
+.category-item img {
   width: 100%;
-  height: 230px;
-  object-fit: cover;
+  height: auto;
 }
 
-.product-card h3 {
-  margin: 10px 0;
-  font-size: 1.1rem;
+.product-card h3,
+.category-item h3 {
+  padding: 10px 10px 5px;
+  font-size: 1rem;
 }
 
-.product-card .price {
+.product-card .price,
+.category-item p {
   color: #e91e63;
   font-weight: bold;
-}
-
-/* Footer */
-.site-footer {
-  background: #111;
-  color: #fff;
-  padding: 30px 20px;
-  text-align: center;
-  font-size: 0.95rem;
-  margin-top: 40px;
+  padding-bottom: 10px;
 }
 
 /* Contact Page */
-.contact-container {
+.contact-section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 40px 20px;
   gap: 40px;
+  padding: 50px 20px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.contact-info {
+.contact-details {
   flex: 1;
-  min-width: 250px;
-  font-size: 1.1rem;
+  min-width: 280px;
+  font-size: 1rem;
+  color: #444;
 }
 
-.contact-info a {
+.contact-details p {
+  margin-bottom: 15px;
+}
+
+.contact-details a {
   color: #e91e63;
   text-decoration: none;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
 }
 
 .contact-form {
   flex: 1;
-  min-width: 280px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
-  padding: 12px;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
+  border-radius: 4px;
 }
 
 .contact-form .button {
-  width: fit-content;
-  padding: 10px 25px;
+  background: #e91e63;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-/* Responsive */
+.contact-form .button:hover {
+  background: #d3185d;
+}
+
+/* Footer */
+.site-footer {
+  background: #fafafa;
+  text-align: center;
+  padding: 25px 20px;
+  font-size: 0.95rem;
+  border-top: 1px solid #eee;
+  color: #555;
+}
+
+.site-footer a {
+  color: #e91e63;
+  text-decoration: none;
+}
+
+/* Responsive Fixes */
 @media (max-width: 768px) {
-  .nav-links,
-  .nav-icons {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    margin: 10px 8px;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-
-  .contact-container {
+  .site-header .container {
     flex-direction: column;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-content h1 {
-    font-size: 1.6rem;
+    gap: 10px;
+    align-items: flex-start;
   }
 
-  .hero-content p {
-    font-size: 0.9rem;
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
-  .logo {
-    font-size: 1.2rem;
+  .contact-section {
+    flex-direction: column;
   }
 }
