@@ -361,15 +361,33 @@ body {
 
 /* Force same layout on all screen sizes */
 @media (max-width: 768px) {
-  .header-row {
-    flex-wrap: nowrap;
+  .header-flex {
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .logo-text {
+    font-size: 18px;
+    text-align: left;
+    flex: 1;
   }
 
   .nav-links {
-    flex-shrink: 1;
-    flex-grow: 1;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    gap: 8px;
+  }
+
+  .logo-img {
+    order: 2;
+  }
+
+  .logo-img img {
+    width: 36px;
+    height: 36px;
   }
 }
