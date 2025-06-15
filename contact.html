@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact Us – Siveera Collection's</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Siveera Collection's</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <header class="page-header">
-    <h1>Contact Us</h1>
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="new.html">New Arrivals</a>
-      <a href="offers.html">Offers</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
+  <header class="header">
+    <div class="container">
+      <div class="logo"><a href="index.html">Siveera Collection's</a></div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="new-arrivals.html">New Arrivals</a>
+        <a href="offers.html">Offers</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <div class="header-icons">
+        <input type="text" placeholder="Search..." />
+        <a href="https://wa.me/919966191975" target="_blank">WhatsApp</a>
+      </div>
+    </div>
   </header>
 
-  <section class="contact-section">
-    <h2>We’d Love to Hear From You!</h2>
-    <p>Have questions, want to place an order, or just want to say hello? Reach out through the options below.</p>
+  <section class="section contact">
+    <h1 class="section-title">Get in Touch</h1>
+    <p class="section-subtitle">We'd love to hear from you. Feel free to reach out anytime!</p>
 
-    <div class="contact-boxes">
-      <div class="contact-box">
-        <h3>📱 WhatsApp</h3>
-        <p>Message us at <strong>9966191975</strong></p>
-        <a href="https://wa.me/919966191975" class="button" target="_blank">Chat Now</a>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/919966191975">+91 99661 91975</a></p>
+        <p><strong>Email:</strong> <a href="mailto:siveeracollections@gmail.com">siveeracollections@gmail.com</a></p>
+        <p><strong>Instagram:</strong> <a href="https://instagram.com/siveeracollections" target="_blank">@siveeracollections</a></p>
+        <p><strong>Location:</strong> Hyderabad, Telangana, India</p>
       </div>
-      <div class="contact-box">
-        <h3>📸 Instagram</h3>
-        <p>Follow us for latest updates and styles.</p>
-        <a href="https://instagram.com/siveeracollections" class="button" target="_blank">@siveeracollections</a>
-      </div>
-      <div class="contact-box">
-        <h3>📧 Email</h3>
-        <p>svcollections594@gmail.com</p>
-      </div>
+
+      <form class="contact-form" action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="button">Send Message</button>
+      </form>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Siveera Collection's | WhatsApp: 9966191975 | Instagram: @siveeracollections
+    <p>&copy; 2025 Siveera Collection's | WhatsApp: 9966191975 | Instagram: @siveeracollections</p>
   </footer>
-
 </body>
 </html>
