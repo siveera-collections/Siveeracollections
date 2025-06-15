@@ -270,8 +270,8 @@ body {
     flex-direction: column;
   }
 }
-/* Homepage-specific hero section */
-.hero-section {
+/* Homepage Only Hero */
+.hero-home {
   background: url('hero-banner.jpg') no-repeat center center/cover;
   color: white;
   text-align: center;
@@ -280,13 +280,15 @@ body {
 }
 
 .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.4); /* Optional dark overlay */
+  background-color: rgba(0, 0, 0, 0.4); /* Optional overlay */
   padding: 60px 20px;
 }
 
 .hero-content {
-  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
   z-index: 2;
+  position: relative;
 }
 
 .hero-content h1 {
