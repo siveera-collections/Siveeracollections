@@ -10,24 +10,17 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container">
-      <div class="logo">Siveera Collection's</div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="new.html">New Arrivals</a>
-        <a href="offers.html" class="active">Offers</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="nav-icons">
-        <a href="#"><i class="fas fa-search"></i></a>
-        <a href="https://wa.me/919966191975"><i class="fab fa-whatsapp"></i></a>
-        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-      </div>
-    </div>
-  </header>
+  <!-- Header Placeholder -->
+<div id="header-placeholder"></div>
+
+<!-- JavaScript to include header -->
+<script>
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+</script>
 
   <!-- Offers Banner -->
   <section class="page-banner">
