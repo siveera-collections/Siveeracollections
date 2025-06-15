@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalamkari Sarees – Siveera Collection's</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Siveera Collection's</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="new.html">New Arrivals</a>
+      <a href="offers.html">Offers</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="category-section">
+    <h2>Kalamkari Sarees</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/kalamkari1.jpg" alt="Kalamkari Saree 1">
+        <h3>Floral Kalamkari Saree</h3>
+        <p class="price">₹1,299</p>
+      </div>
+
+      <div class="product-card">
+        <img src="images/kalamkari2.jpg" alt="Kalamkari Saree 2">
+        <h3>Peacock Design Saree</h3>
+        <p class="price">₹1,499</p>
+      </div>
+
+      <div class="product-card">
+        <img src="images/kalamkari3.jpg" alt="Kalamkari Saree 3">
+        <h3>Traditional Art Saree</h3>
+        <p class="price">₹1,399</p>
+      </div>
+
+      <div class="product-card">
+        <img src="images/kalamkari4.jpg" alt="Kalamkari Saree 4">
+        <h3>Handprinted Kalamkari</h3>
+        <p class="price">₹1,599</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Siveera Collection's | WhatsApp: 9966191975 | Instagram: @siveeracollections
+  </footer>
+</body>
+</html>
