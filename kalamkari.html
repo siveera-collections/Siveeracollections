@@ -29,6 +29,7 @@
   <!-- Product Grid -->
   <section class="category-section">
     <div class="category-grid">
+
       <div class="category-item">
         <img src="kalamkari1.jpg" alt="Saree 1" />
         <h3>Purple Kalamkari Printed Saree</h3>
@@ -80,11 +81,11 @@
 
       <div class="category-item">
         <img src="kalamkari8.jpg" alt="Saree 8" />
-        <h3>Intricate Gold Border Kalamkari Printed Saree</h3>
+        <h3>Intricate Gold Border Kalamkari Saree</h3>
         <p>₹1,049</p>
         <button class="add-to-cart" onclick="addToCart('Intricate Gold Border Kalamkari Saree', 1049)">Add to Cart</button>
       </div>
-     
+
     </div>
   </section>
 
@@ -94,14 +95,24 @@
 
     <div class="billing-form" style="display: none;" id="billing-form">
       <h2>Billing Details</h2>
+
+      <!-- UPI QR Section -->
+      <div class="upi-section">
+        <h3>Scan & Pay via UPI</h3>
+        <img src="svpaymentqr.jpg" alt="Scan to Pay" style="max-width:200px; margin-bottom: 10px;" />
+        <p>UPI ID: <strong>lakshmisana54@axl</strong></p>
+      </div>
+
+      <!-- Billing Form -->
       <form onsubmit="placeOrder(event)">
         <input type="text" placeholder="Full Name" required>
         <textarea placeholder="Full Address" rows="4" required></textarea>
         <input type="tel" placeholder="Phone Number 1" required>
         <input type="tel" placeholder="Phone Number 2" required>
         <input type="email" placeholder="Email Address" required>
-        <button type="submit" class="btn">Place Order</button>
+        <button type="submit" class="btn">Confirm Payment</button>
       </form>
+
       <p id="confirmation-message" style="color: green; font-weight: bold; margin-top: 20px;"></p>
     </div>
   </section>
@@ -115,7 +126,7 @@
     </p>
   </footer>
 
-  <!-- JavaScript for Cart & Payment -->
+  <!-- JavaScript -->
   <script>
     let cartItems = [];
 
@@ -149,6 +160,26 @@
 
     function placeOrder(e) {
       e.preventDefault();
+      const name = document.querySelector('input[placeholder="Full Name"]').value;
+      const address = document.querySelector('textarea[placeholder="Full Address"]').value;
+      const phone1 = document.querySelector('input[placeholder="Phone Number 1"]').value;
+      const phone2 = document.querySelector('input[placeholder="Phone Number 2"]').value;
+      const email = document.querySelector('input[placeholder="Email Address"]').value;
+
+      let orderDetails = "🧵 *New Order from Siveera Collection's*%0A";
+      orderDetails += `👤 Name: ${name}%0A📍 Address: ${address}%0A📞 Phone 1: ${phone1}%0A📞 Phone 2: ${phone2}%0A✉️ Email: ${email}%0A%0A🛒 *Items Ordered:*%0A`;
+
+      let total = 0;
+      cartItems.forEach(item => {
+        orderDetails += `• ${item.name} - ₹${item.price}%0A`;
+        total += item.price;
+      });
+
+      orderDetails += `%0A💰 *Total Amount*: ₹${total}%0A✅ Payment Done via UPI`;
+
+      const whatsappURL = `https://wa.me/919966191975?text=${orderDetails}`;
+      window.open(whatsappURL, "_blank");
+
       document.getElementById("confirmation-message").innerText = "✅ Payment successful! Your order has been placed.";
       document.querySelector("#billing-form form").reset();
       cartItems = [];
