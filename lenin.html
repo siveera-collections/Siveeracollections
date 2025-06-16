@@ -22,7 +22,7 @@
     <p>Elegant, breathable and rich in tradition</p>
   </section>
 
-  <!-- Saree Grid -->
+  <!-- Product Grid -->
   <section class="section">
     <h2 class="section-title">Our Lenin Cotton Picks</h2>
     <p class="section-subtitle">Soft, lightweight sarees perfect for any occasion</p>
@@ -33,21 +33,18 @@
         <p class="price">₹849</p>
         <button onclick="addToCart('Printed Skyblue Lenin Saree', 849)">Add to Cart</button>
       </div>
-
       <div class="product-card">
         <img src="leninyellow.jpg" alt="Saree 2">
         <h3>Printed Yellow Lenin Saree</h3>
         <p class="price">₹849</p>
         <button onclick="addToCart('Printed Yellow Lenin Saree', 849)">Add to Cart</button>
       </div>
-
       <div class="product-card">
         <img src="leningreen.jpg" alt="Saree 3">
         <h3>Lux Green Lenin Printed Saree</h3>
         <p class="price">₹849</p>
         <button onclick="addToCart('Lux Green Lenin Printed Saree', 849)">Add to Cart</button>
       </div>
-
       <div class="product-card">
         <img src="leninpink.jpg" alt="Saree 4">
         <h3>Floral Pink Printed Lenin Saree</h3>
@@ -99,70 +96,74 @@
   </footer>
 
   <!-- JS Script -->
- <script>
-  let cartItems = [];
+  <script>
+    let cartItems = [];
 
-  function addToCart(name, price) {
-    cartItems.push({ name, price });
-    showCart();
-
-    // Scroll to cart display after item is added
-    const cartDiv = document.getElementById("cart-display");
-    cartDiv.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  function showCart() {
-    const cartDiv = document.getElementById("cart-display");
-    if (cartItems.length === 0) {
-      cartDiv.innerHTML = "<h2>Your cart is empty.</h2>";
-      return;
+    function addToCart(name, price) {
+      cartItems.push({ name, price });
+      showCart();
+      document.getElementById("cart-display").scrollIntoView({ behavior: 'smooth' });
     }
 
-    let html = "<h2>Your Cart</h2><ul>";
-    let total = 0;
-    cartItems.forEach(item => {
-      html += `<li>${item.name} - ₹${item.price}</li>`;
-      total += item.price;
-    });
-    html += `</ul><p><strong>Total: ₹${total}</strong></p>`;
-    html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
-    cartDiv.innerHTML = html;
-  }
+    function showCart() {
+      const cartDiv = document.getElementById("cart-display");
+      if (cartItems.length === 0) {
+        cartDiv.innerHTML = "<h2>Your cart is empty.</h2>";
+        return;
+      }
 
-  function proceedToPayment() {
-    document.getElementById("billing-form").style.display = "block";
-    document.getElementById("billing-form").scrollIntoView({ behavior: 'smooth' });
-  }
+      let html = "<h2>Your Cart</h2><ul>";
+      let total = 0;
+      cartItems.forEach(item => {
+        html += `<li>${item.name} - ₹${item.price}</li>`;
+        total += item.price;
+      });
+      html += `</ul><p><strong>Total: ₹${total}</strong></p>`;
+      html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
+      cartDiv.innerHTML = html;
+    }
 
-  function placeOrder(e) {
-    e.preventDefault();
-    const name = document.querySelector('input[placeholder="Full Name"]').value;
-    const address = document.querySelector('textarea[placeholder="Full Address"]').value;
-    const phone1 = document.querySelector('input[placeholder="Phone Number 1"]').value;
-    const phone2 = document.querySelector('input[placeholder="Phone Number 2"]').value;
-    const email = document.querySelector('input[placeholder="Email Address"]').value;
+    function proceedToPayment() {
+      document.getElementById("billing-form").style.display = "block";
+      document.getElementById("billing-form").scrollIntoView({ behavior: 'smooth' });
+    }
 
-    let orderDetails = "🧵 *New Order from Siveera Collection's*%0A";
-    orderDetails += `👤 Name: ${name}%0A📍 Address: ${address}%0A📞 Phone 1: ${phone1}%0A📞 Phone 2: ${phone2}%0A✉️ Email: ${email}%0A%0A🛒 *Items Ordered:*%0A`;
+    function placeOrder(e) {
+      e.preventDefault();
 
-    let total = 0;
-    cartItems.forEach(item => {
-      orderDetails += `• ${item.name} - ₹${item.price}%0A`;
-      total += item.price;
-    });
+      const name = document.getElementById("name").value;
+      const address = 
+        document.getElementById("doorno").value + ", " +
+        document.getElementById("landmark").value + ", " +
+        document.getElementById("city").value + ", " +
+        document.getElementById("state").value + ", " +
+        document.getElementById("country").value + " - " +
+        document.getElementById("pincode").value;
 
-    orderDetails += `%0A💰 *Total Amount*: ₹${total}%0A✅ Payment Done via UPI`;
+      const phone1 = document.getElementById("phone1").value;
+      const phone2 = document.getElementById("phone2").value;
+      const email = document.getElementById("email").value;
 
-    const whatsappURL = `https://wa.me/919966191975?text=${orderDetails}`;
-    window.open(whatsappURL, "_blank");
+      let orderDetails = "🧵 *New Order from Siveera Collection's*%0A";
+      orderDetails += `👤 Name: ${name}%0A📍 Address: ${address}%0A📞 Phone 1: ${phone1}%0A📞 Phone 2: ${phone2}%0A✉️ Email: ${email}%0A%0A🛒 *Items Ordered:*%0A`;
 
-    document.getElementById("confirmation-message").innerText = "✅ Payment successful! Your order has been placed.";
-    document.querySelector("#billing-form form").reset();
-    cartItems = [];
-    document.getElementById("cart-display").innerHTML = "";
-  }
-</script>
+      let total = 0;
+      cartItems.forEach(item => {
+        orderDetails += `• ${item.name} - ₹${item.price}%0A`;
+        total += item.price;
+      });
 
+      orderDetails += `%0A💰 *Total Amount*: ₹${total}%0A✅ Payment Done via UPI`;
+
+      const whatsappURL = `https://wa.me/919966191975?text=${orderDetails}`;
+      window.open(whatsappURL, "_blank");
+
+      document.getElementById("confirmation-message").innerText = "✅ Payment successful! Your order has been placed.";
+      document.querySelector("#billing-form form").reset();
+      cartItems = [];
+      document.getElementById("cart-display").innerHTML = "";
+    }
+  </script>
 
 </body>
 </html>
