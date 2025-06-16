@@ -99,71 +99,70 @@
   </footer>
 
   <!-- JS Script -->
-  <script>
-    let cartItems = [];
+ <script>
+  let cartItems = [];
 
-    function addToCart(name, price) {
-      const existing = cartItems.find(item => item.name === name);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cartItems.push({ name, price, qty: 1 });
-      }
-      showCart();
+  function addToCart(name, price) {
+    cartItems.push({ name, price });
+    showCart();
+
+    // Scroll to cart display after item is added
+    const cartDiv = document.getElementById("cart-display");
+    cartDiv.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function showCart() {
+    const cartDiv = document.getElementById("cart-display");
+    if (cartItems.length === 0) {
+      cartDiv.innerHTML = "<h2>Your cart is empty.</h2>";
+      return;
     }
 
-    function showCart() {
-      const cartDiv = document.getElementById("cart-display");
-      if (cartItems.length === 0) {
-        cartDiv.innerHTML = "<h2>Your cart is empty.</h2>";
-        return;
-      }
+    let html = "<h2>Your Cart</h2><ul>";
+    let total = 0;
+    cartItems.forEach(item => {
+      html += `<li>${item.name} - ₹${item.price}</li>`;
+      total += item.price;
+    });
+    html += `</ul><p><strong>Total: ₹${total}</strong></p>`;
+    html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
+    cartDiv.innerHTML = html;
+  }
 
-      let total = 0;
-      let html = "<h2>Your Cart</h2><ul>";
-      cartItems.forEach(item => {
-        const itemTotal = item.price * item.qty;
-        html += `<li>${item.name} (x${item.qty}) - ₹${itemTotal}</li>`;
-        total += itemTotal;
-      });
-      html += `</ul><p><strong>Total: ₹${total}</strong></p>`;
-      html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
-      cartDiv.innerHTML = html;
-    }
+  function proceedToPayment() {
+    document.getElementById("billing-form").style.display = "block";
+    document.getElementById("billing-form").scrollIntoView({ behavior: 'smooth' });
+  }
 
-    function proceedToPayment() {
-      document.getElementById("billing-form").style.display = "block";
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
+  function placeOrder(e) {
+    e.preventDefault();
+    const name = document.querySelector('input[placeholder="Full Name"]').value;
+    const address = document.querySelector('textarea[placeholder="Full Address"]').value;
+    const phone1 = document.querySelector('input[placeholder="Phone Number 1"]').value;
+    const phone2 = document.querySelector('input[placeholder="Phone Number 2"]').value;
+    const email = document.querySelector('input[placeholder="Email Address"]').value;
 
-    function placeOrder(e) {
-      e.preventDefault();
+    let orderDetails = "🧵 *New Order from Siveera Collection's*%0A";
+    orderDetails += `👤 Name: ${name}%0A📍 Address: ${address}%0A📞 Phone 1: ${phone1}%0A📞 Phone 2: ${phone2}%0A✉️ Email: ${email}%0A%0A🛒 *Items Ordered:*%0A`;
 
-      const name = document.getElementById("name").value;
-      const door = document.getElementById("doorno").value;
-      const landmark = document.getElementById("landmark").value;
-      const city = document.getElementById("city").value;
-      const state = document.getElementById("state").value;
-      const country = document.getElementById("country").value;
-      const pincode = document.getElementById("pincode").value;
-      const phone1 = document.getElementById("phone1").value;
-      const phone2 = document.getElementById("phone2").value;
-      const email = document.getElementById("email").value;
+    let total = 0;
+    cartItems.forEach(item => {
+      orderDetails += `• ${item.name} - ₹${item.price}%0A`;
+      total += item.price;
+    });
 
-      const address = `${door}, ${landmark}, ${city}, ${state}, ${country} - ${pincode}`;
-      const orderSummary = cartItems.map(i => `${i.name} x${i.qty} - ₹${i.price * i.qty}`).join('%0A');
-      const total = cartItems.reduce((sum, i) => sum + (i.price * i.qty), 0);
+    orderDetails += `%0A💰 *Total Amount*: ₹${total}%0A✅ Payment Done via UPI`;
 
-      const msg = `🧾 *New Order - Lenin Cotton*%0A%0A👤 Name: ${name}%0A🏡 Address: ${address}%0A📞 Phone 1: ${phone1}%0A📞 Phone 2: ${phone2}%0A📧 Email: ${email}%0A%0A📦 *Order Items:*%0A${orderSummary}%0A💰 *Total: ₹${total}*%0A✅ Payment Confirmed`;
+    const whatsappURL = `https://wa.me/919966191975?text=${orderDetails}`;
+    window.open(whatsappURL, "_blank");
 
-      window.open(`https://wa.me/919966191975?text=${msg}`, "_blank");
+    document.getElementById("confirmation-message").innerText = "✅ Payment successful! Your order has been placed.";
+    document.querySelector("#billing-form form").reset();
+    cartItems = [];
+    document.getElementById("cart-display").innerHTML = "";
+  }
+</script>
 
-      document.getElementById("confirmation-message").innerText = "✅ Payment successful! Your order has been placed.";
-      document.querySelector("#billing-form form").reset();
-      document.getElementById("cart-display").innerHTML = "";
-      cartItems = [];
-    }
-  </script>
 
 </body>
 </html>
