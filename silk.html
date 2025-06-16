@@ -7,10 +7,50 @@
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet"/>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .add-to-cart {
+      padding: 10px 20px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #d81b60;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: #388E3C;
+    }
+
+    .whatsapp-btn {
+      margin-top: 10px;
+      background-color: #25D366;
+      display: inline-block;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebd5a;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header Placeholder -->
+  <!-- Header -->
   <div id="header-placeholder"></div>
   <script>
     fetch("header.html")
@@ -29,33 +69,31 @@
   <!-- Product Grid -->
   <section class="product-section">
     <div class="product-grid">
-      <!-- Product Cards -->
       <div class="product-card">
         <img src="carpets-market-marrakech_23-2148129810.avif" alt="Kanjivaram Silk Saree">
         <h3>Kanjivaram Silk Saree</h3>
         <p class="price">₹2,499</p>
-        <button onclick="addToCart('Kanjivaram Silk Saree', 2499)">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Kanjivaram Silk Saree', 2499)">Add to Cart</button>
       </div>
       <div class="product-card">
         <img src="carpets-market-marrakech_23-2148129810.avif" alt="Soft Silk Designer Saree">
         <h3>Soft Silk Designer Saree</h3>
         <p class="price">₹1</p>
-        <button onclick="addToCart('Soft Silk Designer Saree', 1)">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Soft Silk Designer Saree', 1)">Add to Cart</button>
       </div>
       <div class="product-card">
         <img src="carpets-market-marrakech_23-2148129810.avif" alt="Traditional Wedding Silk Saree">
         <h3>Traditional Wedding Silk Saree</h3>
         <p class="price">₹2,799</p>
-        <button onclick="addToCart('Traditional Wedding Silk Saree', 2799)">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Traditional Wedding Silk Saree', 2799)">Add to Cart</button>
       </div>
     </div>
   </section>
 
-  <!-- Cart Section -->
+  <!-- Cart & Billing Section -->
   <section class="cart-payment-section">
     <div id="cart-display"></div>
 
-    <!-- Billing Details Form -->
     <div class="billing-form" style="display: none;" id="billing-form">
       <h2>Billing & Payment</h2>
       <form onsubmit="placeOrder(event)">
@@ -67,12 +105,15 @@
 
         <h3>Scan to Pay</h3>
         <img src="svpaymentqr.jpg" alt="qr-code" style="max-width: 200px; margin: 10px 0;"/>
-
         <p><strong>UPI ID:</strong> lakshmisana54@axl</p>
         <p>After payment, click below to confirm:</p>
 
         <button type="submit" class="btn">Confirm Payment</button>
       </form>
+
+      <a class="btn whatsapp-btn" href="https://wa.me/919966191975?text=I%20have%20placed%20my%20order%20and%20paid.%20Please%20check%20my%20payment%20screenshot." target="_blank">
+        Upload Screenshot via WhatsApp
+      </a>
 
       <p id="confirmation-message" style="color: green; font-weight: bold; margin-top: 20px;"></p>
     </div>
@@ -122,10 +163,15 @@
       e.preventDefault();
 
       const name = document.getElementById("name").value;
-      const address = document.getElementById("address").value;
-      const phone1 = document.getElementById("phone1").value;
-      const phone2 = document.getElementById("phone2").value;
-      const email = document.getElementById("email").value;
+      const address = document.getElementById("Country").value;
+      const address = document.getElementById("State").value;
+      const address = document.getElementById("City").value;
+      const address = document.getElementById("Landmark").value;
+      const address = document.getElementById("Pincode").value;
+      const address = document.getElementById("Door No:-").value;
+      const phone1 = document.getElementById("Primary Mobile No").value;
+      const phone2 = document.getElementById("Secondary Mobile No").value;
+      const email = document.getElementById("Email").value;
 
       const orderSummary = cartItems.map(i => `${i.name} - ₹${i.price}`).join('%0A');
       const total = cartItems.reduce((sum, i) => sum + i.price, 0);
