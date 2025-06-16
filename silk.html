@@ -46,6 +46,15 @@
     .whatsapp-btn:hover {
       background-color: #1ebd5a;
     }
+
+    .billing-form input,
+    .billing-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -98,7 +107,13 @@
       <h2>Billing & Payment</h2>
       <form onsubmit="placeOrder(event)">
         <input type="text" id="name" placeholder="Full Name" required>
-        <textarea id="address" placeholder="Full Address" rows="4" required></textarea>
+        <input type="text" id="doorno" placeholder="Door No" required>
+        <input type="text" id="landmark" placeholder="Landmark" required>
+        <input type="text" id="city" placeholder="City" required>
+        <input type="text" id="state" placeholder="State" required>
+        <input type="text" id="country" placeholder="Country" required>
+        <input type="text" id="pincode" placeholder="Pincode" required>
+
         <input type="tel" id="phone1" placeholder="Phone Number 1" required>
         <input type="tel" id="phone2" placeholder="Phone Number 2" required>
         <input type="email" id="email" placeholder="Email Address" required>
@@ -163,15 +178,18 @@
       e.preventDefault();
 
       const name = document.getElementById("name").value;
-      const address = document.getElementById("Country").value;
-      const address = document.getElementById("State").value;
-      const address = document.getElementById("City").value;
-      const address = document.getElementById("Landmark").value;
-      const address = document.getElementById("Pincode").value;
-      const address = document.getElementById("Door No:-").value;
-      const phone1 = document.getElementById("Primary Mobile No").value;
-      const phone2 = document.getElementById("Secondary Mobile No").value;
-      const email = document.getElementById("Email").value;
+      const door = document.getElementById("doorno").value;
+      const landmark = document.getElementById("landmark").value;
+      const city = document.getElementById("city").value;
+      const state = document.getElementById("state").value;
+      const country = document.getElementById("country").value;
+      const pincode = document.getElementById("pincode").value;
+
+      const address = `${door}, ${landmark}, ${city}, ${state}, ${country} - ${pincode}`;
+
+      const phone1 = document.getElementById("phone1").value;
+      const phone2 = document.getElementById("phone2").value;
+      const email = document.getElementById("email").value;
 
       const orderSummary = cartItems.map(i => `${i.name} - ₹${i.price}`).join('%0A');
       const total = cartItems.reduce((sum, i) => sum + i.price, 0);
