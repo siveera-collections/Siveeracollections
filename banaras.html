@@ -10,16 +10,14 @@
 <body>
 
   <!-- Header Placeholder -->
-<div id="header-placeholder"></div>
-
-<!-- JavaScript to include header -->
-<script>
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-placeholder").innerHTML = data;
-    });
-</script>
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+  </script>
 
   <!-- Page Banner -->
   <section class="page-banner">
@@ -31,22 +29,95 @@
   <section class="section">
     <div class="container">
       <div class="product-grid">
-        <!-- Sample Product Card -->
         <div class="product-card">
           <img src="carpets-market-marrakech_23-2148129810.avif" alt="Banaras Saree 1">
-          <h3>Banaras Saree 1</h3>
+          <h3>Banaras Zari Weave</h3>
           <p class="price">₹2,499</p>
+          <button onclick="addToCart('Banaras Zari Weave', 2499)">Add to Cart</button>
         </div>
-        <!-- Add more sarees -->
+
+        <div class="product-card">
+          <img src="carpets-market-marrakech_23-2148129810.avif" alt="Banaras Saree 2">
+          <h3>Pure Kora Banaras</h3>
+          <p class="price">₹2,999</p>
+          <button onclick="addToCart('Pure Kora Banaras', 2999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="carpets-market-marrakech_23-2148129810.avif" alt="Banaras Saree 3">
+          <h3>Gold Brocade Banaras</h3>
+          <p class="price">₹3,499</p>
+          <button onclick="addToCart('Gold Brocade Banaras', 3499)">Add to Cart</button>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Cart & Payment Section -->
+  <section class="cart-payment-section">
+    <div id="cart-display"></div>
+
+    <div class="billing-form" style="display: none;" id="billing-form">
+      <h2>Billing Details</h2>
+      <form onsubmit="placeOrder(event)">
+        <input type="text" placeholder="Full Name" required>
+        <textarea placeholder="Full Address" rows="4" required></textarea>
+        <input type="tel" placeholder="Phone Number 1" required>
+        <input type="tel" placeholder="Phone Number 2" required>
+        <input type="email" placeholder="Email Address" required>
+        <button type="submit" class="btn">Place Order</button>
+      </form>
+      <p id="confirmation-message" style="color: green; font-weight: bold; margin-top: 20px;"></p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="site-footer">
     <p>&copy; 2025 Siveera Collection's</p>
-    <p>📞 WhatsApp: <a href="https://wa.me/919966191975">9966191975</a> | 📸 Instagram: <a href="https://instagram.com/siveeracollections">@siveeracollections</a></p>
+    <p>📞 WhatsApp: <a href="https://wa.me/919966191975">9966191975</a> | 
+      📸 Instagram: <a href="https://instagram.com/siveeracollections">@siveeracollections</a></p>
   </footer>
+
+  <!-- JavaScript for Cart & Payment -->
+  <script>
+    let cartItems = [];
+
+    function addToCart(name, price) {
+      cartItems.push({ name, price });
+      showCart();
+    }
+
+    function showCart() {
+      const cartDiv = document.getElementById("cart-display");
+      if (cartItems.length === 0) {
+        cartDiv.innerHTML = "<h2>Your cart is empty.</h2>";
+        return;
+      }
+
+      let html = "<h2>Your Cart</h2><ul>";
+      let total = 0;
+      cartItems.forEach(item => {
+        html += `<li>${item.name} - ₹${item.price}</li>`;
+        total += item.price;
+      });
+      html += `</ul><p><strong>Total: ₹${total}</strong></p>`;
+      html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
+      cartDiv.innerHTML = html;
+    }
+
+    function proceedToPayment() {
+      document.getElementById("billing-form").style.display = "block";
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    function placeOrder(e) {
+      e.preventDefault();
+      document.getElementById("confirmation-message").innerText = "✅ Payment successful! Your order has been placed.";
+      document.querySelector("#billing-form form").reset();
+      cartItems = [];
+      document.getElementById("cart-display").innerHTML = "";
+    }
+  </script>
 
 </body>
 </html>
