@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://siveera-collections.github.io/Siveeracollections/sitemap.xml
