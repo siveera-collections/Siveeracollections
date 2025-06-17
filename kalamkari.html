@@ -4,13 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kalamkari Sarees | Siveera Collection's</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Discover vibrant hand-painted Kalamkari sarees from Siveera Collection's. Order online and pay via UPI.">
+  <meta name="keywords" content="Kalamkari Sarees, Hand Painted Sarees, Indian Sarees, Siveera Collection, Cotton Sarees, Traditional Wear">
+  <meta name="author" content="Siveera Collection's">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+
+  <!-- Styles & Fonts -->
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <!-- Header Placeholder -->
+  <!-- Header -->
   <div id="header-placeholder"></div>
   <script>
     fetch("header.html")
@@ -19,10 +29,6 @@
         document.getElementById("header-placeholder").innerHTML = data;
       });
   </script>
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-
 
   <!-- Banner -->
   <section class="page-banner">
@@ -34,57 +40,58 @@
   <section class="category-section">
     <div class="category-grid">
 
+      <!-- Product Items -->
       <div class="category-item">
-        <img src="kalamkari1.jpg" alt="Saree 1" />
+        <img src="kalamkari1.jpg" alt="Purple Kalamkari Printed Saree" />
         <h3>Purple Kalamkari Printed Saree</h3>
         <p>₹1,049</p>
         <button class="add-to-cart" onclick="addToCart('Purple Kalamkari Saree', 1049)">Add to Cart</button>
       </div>
 
       <div class="category-item">
-        <img src="kalamkari2.jpg" alt="Saree 2" />
+        <img src="kalamkari2.jpg" alt="Maroon Kalamkari Printed Saree" />
         <h3>Maroon Kalamkari Printed Saree</h3>
         <p>₹1,049</p>
         <button class="add-to-cart" onclick="addToCart('Maroon Kalamkari Saree', 1049)">Add to Cart</button>
       </div>
 
       <div class="category-item">
-        <img src="kalamkari3.jpg" alt="Saree 3" />
+        <img src="kalamkari3.jpg" alt="Ash Shade Kalamkari Printed Saree" />
         <h3>Ash Shade Kalamkari Printed Saree</h3>
         <p>₹1,049</p>
         <button class="add-to-cart" onclick="addToCart('Ash Shade Kalamkari Saree', 1049)">Add to Cart</button>
       </div>
 
       <div class="category-item">
-        <img src="kalamkari4.jpg" alt="Saree 4" />
+        <img src="kalamkari4.jpg" alt="Green Kalamkari Printed Saree" />
         <h3>Green Kalamkari Printed Saree</h3>
         <p>₹1,049</p>
         <button class="add-to-cart" onclick="addToCart('Green Kalamkari Saree', 1049)">Add to Cart</button>
       </div>
 
       <div class="category-item">
-        <img src="kalamkari5.jpg" alt="Saree 5" />
+        <img src="kalamkari5.jpg" alt="Magenta Kalamkari Printed Saree" />
         <h3>Magenta Kalamkari Printed Saree</h3>
         <p>₹1,049</p>
         <button class="add-to-cart" onclick="addToCart('Magenta Kalamkari Saree', 1049)">Add to Cart</button>
       </div>
 
       <div class="category-item">
-        <img src="kalamkari6.jpg" alt="Saree 6" />
-        <h3>Voilet Kalamkari Printed Saree</h3>
+        <img src="kalamkari6.jpg" alt="Violet Kalamkari Printed Saree" />
+        <h3>Violet Kalamkari Printed Saree</h3>
         <p>₹1,049</p>
-        <button class="add-to-cart" onclick="addToCart('Voilet Kalamkari Saree', 1049)">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Violet Kalamkari Saree', 1049)">Add to Cart</button>
       </div>
 
       <div class="category-item">
-        <img src="kalamkari7.jpg" alt="Saree 7" />
+        <img src="kalamkari7.jpg" alt="Light Blue Kalamkari Printed Saree" />
         <h3>Light Blue Kalamkari Printed Saree</h3>
         <p>₹1,049</p>
         <button class="add-to-cart" onclick="addToCart('Light Blue Kalamkari Saree', 1049)">Add to Cart</button>
       </div>
 
       <div class="category-item">
-        <img src="kalamkari8.jpg" alt="Saree 8" />
+        <img src="kalamkari8.jpg" alt="Intricate Gold Border Kalamkari Saree" />
         <h3>Intricate Gold Border Kalamkari Saree</h3>
         <p>₹1,049</p>
         <button class="add-to-cart" onclick="addToCart('Intricate Gold Border Kalamkari Saree', 1049)">Add to Cart</button>
@@ -93,17 +100,17 @@
     </div>
   </section>
 
-  <!-- Cart & Payment Section -->
+  <!-- Cart & Payment -->
   <section class="cart-payment-section">
     <div id="cart-display"></div>
 
     <div class="billing-form" style="display: none;" id="billing-form">
       <h2>Billing Details</h2>
 
-      <!-- UPI QR Section -->
+      <!-- UPI Section -->
       <div class="upi-section">
         <h3>Scan & Pay via UPI</h3>
-        <img src="svpaymentqr.jpg" alt="Scan to Pay" style="max-width:200px; margin-bottom: 10px;" />
+        <img src="svpaymentqr.jpg" alt="UPI QR Code - Siveera Payment" style="max-width:200px; margin-bottom: 10px;" />
         <p>UPI ID: <strong>lakshmisana54@axl</strong></p>
       </div>
 
@@ -131,70 +138,82 @@
   </footer>
 
   <!-- JavaScript -->
- <script>
-  let cartItems = [];
+  <script>
+    let cartItems = [];
 
-  function addToCart(name, price) {
-    cartItems.push({ name, price });
-    showCart();
-
-    // Scroll to cart display after item is added
-    const cartDiv = document.getElementById("cart-display");
-    cartDiv.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  function showCart() {
-    const cartDiv = document.getElementById("cart-display");
-    if (cartItems.length === 0) {
-      cartDiv.innerHTML = "<h2>Your cart is empty.</h2>";
-      return;
+    function addToCart(name, price) {
+      cartItems.push({ name, price });
+      saveCart();
+      showCart();
+      document.getElementById("cart-display").scrollIntoView({ behavior: 'smooth' });
     }
 
-    let html = "<h2>Your Cart</h2><ul>";
-    let total = 0;
-    cartItems.forEach(item => {
-      html += `<li>${item.name} - ₹${item.price}</li>`;
-      total += item.price;
-    });
-    html += `</ul><p><strong>Total: ₹${total}</strong></p>`;
-    html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
-    cartDiv.innerHTML = html;
-  }
+    function showCart() {
+      const cartDiv = document.getElementById("cart-display");
+      if (cartItems.length === 0) {
+        cartDiv.innerHTML = "<h2>Your cart is empty.</h2>";
+        return;
+      }
 
-  function proceedToPayment() {
-    document.getElementById("billing-form").style.display = "block";
-    document.getElementById("billing-form").scrollIntoView({ behavior: 'smooth' });
-  }
+      let html = "<h2>Your Cart</h2><ul>";
+      let total = 0;
+      cartItems.forEach(item => {
+        html += `<li>${item.name} - ₹${item.price}</li>`;
+        total += item.price;
+      });
+      html += `</ul><p><strong>Total: ₹${total}</strong></p>`;
+      html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
+      cartDiv.innerHTML = html;
+    }
 
-  function placeOrder(e) {
-    e.preventDefault();
-    const name = document.querySelector('input[placeholder="Full Name"]').value;
-    const address = document.querySelector('textarea[placeholder="Full Address"]').value;
-    const phone1 = document.querySelector('input[placeholder="Phone Number 1"]').value;
-    const phone2 = document.querySelector('input[placeholder="Phone Number 2"]').value;
-    const email = document.querySelector('input[placeholder="Email Address"]').value;
+    function proceedToPayment() {
+      document.getElementById("billing-form").style.display = "block";
+      document.getElementById("billing-form").scrollIntoView({ behavior: 'smooth' });
+    }
 
-    let orderDetails = "🧵 *New Order from Siveera Collection's*%0A";
-    orderDetails += `👤 Name: ${name}%0A📍 Address: ${address}%0A📞 Phone 1: ${phone1}%0A📞 Phone 2: ${phone2}%0A✉️ Email: ${email}%0A%0A🛒 *Items Ordered:*%0A`;
+    function placeOrder(e) {
+      e.preventDefault();
+      const name = document.querySelector('input[placeholder="Full Name"]').value;
+      const address = document.querySelector('textarea[placeholder="Full Address"]').value;
+      const phone1 = document.querySelector('input[placeholder="Phone Number 1"]').value;
+      const phone2 = document.querySelector('input[placeholder="Phone Number 2"]').value;
+      const email = document.querySelector('input[placeholder="Email Address"]').value;
 
-    let total = 0;
-    cartItems.forEach(item => {
-      orderDetails += `• ${item.name} - ₹${item.price}%0A`;
-      total += item.price;
-    });
+      let orderDetails = "🧵 *New Order from Siveera Collection's*%0A";
+      orderDetails += `👤 Name: ${name}%0A📍 Address: ${address}%0A📞 Phone 1: ${phone1}%0A📞 Phone 2: ${phone2}%0A✉️ Email: ${email}%0A%0A🛒 *Items Ordered:*%0A`;
 
-    orderDetails += `%0A💰 *Total Amount*: ₹${total}%0A✅ Payment Done via UPI`;
+      let total = 0;
+      cartItems.forEach(item => {
+        orderDetails += `• ${item.name} - ₹${item.price}%0A`;
+        total += item.price;
+      });
 
-    const whatsappURL = `https://wa.me/919966191975?text=${orderDetails}`;
-    window.open(whatsappURL, "_blank");
+      orderDetails += `%0A💰 *Total Amount*: ₹${total}%0A✅ Payment Done via UPI`;
 
-    document.getElementById("confirmation-message").innerText = "✅ Payment successful! Your order has been placed.";
-    document.querySelector("#billing-form form").reset();
-    cartItems = [];
-    document.getElementById("cart-display").innerHTML = "";
-  }
-</script>
+      const whatsappURL = `https://wa.me/919966191975?text=${orderDetails}`;
+      window.open(whatsappURL, "_blank");
 
+      document.getElementById("confirmation-message").innerText = "✅ Payment successful! Your order has been placed.";
+      document.querySelector("#billing-form form").reset();
+      cartItems = [];
+      localStorage.removeItem('siveeraCart');
+      document.getElementById("cart-display").innerHTML = "";
+    }
+
+    function saveCart() {
+      localStorage.setItem('siveeraCart', JSON.stringify(cartItems));
+    }
+
+    function loadCart() {
+      const saved = localStorage.getItem('siveeraCart');
+      if (saved) {
+        cartItems = JSON.parse(saved);
+        showCart();
+      }
+    }
+
+    window.onload = loadCart;
+  </script>
 
 </body>
 </html>
