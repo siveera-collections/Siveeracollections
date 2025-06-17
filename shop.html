@@ -4,27 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop | Siveera Collection's</title>
+
+  <!-- Favicon (✅ move inside head) -->
+  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://siveera-collections.github.io/Siveeracollections/favicon.png" />
+
+  <!-- Styles and Fonts -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <!-- Favicon (optional) -->
-  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
 
-<!-- Header Placeholder -->
-<div id="header-placeholder"></div>
-
-<!-- JavaScript to include header -->
-<script>
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-placeholder").innerHTML = data;
-    });
-</script>
+  <!-- JavaScript to include header -->
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+  </script>
 
   <!-- Shop Categories Banner -->
   <section class="page-banner">
@@ -36,7 +38,7 @@
   <section class="category-section">
     <div class="category-grid">
       <a href="banarasi.html" class="category-item">
-        <img src="IMG-20250616-WA0106.jpg" alt="Sarees" />
+        <img src="IMG-20250616-WA0106.jpg" alt="Banarasi Sarees" />
         <h3>Banarasi Fancy Pattu Sarees</h3>
       </a>
 
@@ -54,15 +56,16 @@
         <img src="IMG-20250616-WA0107.jpg" alt="Silk Sarees" />
         <h3>Dola Silk Printed Sarees</h3>
       </a>
-
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="site-footer">
     <p>&copy; 2025 Siveera Collection's</p>
-    <p>📞 WhatsApp: <a href="https://wa.me/919966191975" style="color: #e91e63;">9966191975</a> | 📸 Instagram: 
-    <a href="https://instagram.com/siveeracollections" style="color: #e91e63;">@siveeracollections</a></p>
+    <p>
+      📞 WhatsApp: <a href="https://wa.me/919966191975" style="color: #e91e63;">9966191975</a> |
+      📸 Instagram: <a href="https://instagram.com/siveeracollections" style="color: #e91e63;">@siveeracollections</a>
+    </p>
   </footer>
 
 </body>
