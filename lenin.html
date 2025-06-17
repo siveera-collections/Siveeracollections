@@ -4,7 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lenin Cotton Sarees - Siveera Collection's</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://siveera-collections.github.io/Siveeracollections/favicon.png" />
+
+  <!-- Styles & Fonts -->
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -15,11 +22,6 @@
       .then(res => res.text())
       .then(data => document.getElementById("header-placeholder").innerHTML = data);
   </script>
-
-   <!-- Favicon (optional) -->
-  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-
 
   <!-- Hero Banner -->
   <section class="page-banner hero-small">
@@ -33,25 +35,25 @@
     <p class="section-subtitle">Soft, lightweight sarees perfect for any occasion</p>
     <div class="product-grid">
       <div class="product-card">
-        <img src="leninblue.jpg" alt="Saree 1">
+        <img src="leninblue.jpg" alt="Printed Skyblue Lenin Saree">
         <h3>Printed Skyblue Lenin Saree</h3>
         <p class="price">₹849</p>
         <button class="btn" onclick="addToCart('Printed Skyblue Lenin Saree', 849)">Add to Cart</button>
       </div>
       <div class="product-card">
-        <img src="leninyellow.jpg" alt="Saree 2">
+        <img src="leninyellow.jpg" alt="Printed Yellow Lenin Saree">
         <h3>Printed Yellow Lenin Saree</h3>
         <p class="price">₹849</p>
         <button class="btn" onclick="addToCart('Printed Yellow Lenin Saree', 849)">Add to Cart</button>
       </div>
       <div class="product-card">
-        <img src="leningreen.jpg" alt="Saree 3">
+        <img src="leningreen.jpg" alt="Lux Green Lenin Printed Saree">
         <h3>Lux Green Lenin Printed Saree</h3>
         <p class="price">₹849</p>
         <button class="btn" onclick="addToCart('Lux Green Lenin Printed Saree', 849)">Add to Cart</button>
       </div>
       <div class="product-card">
-        <img src="leninpink.jpg" alt="Saree 4">
+        <img src="leninpink.jpg" alt="Floral Pink Printed Lenin Saree">
         <h3>Floral Pink Printed Lenin Saree</h3>
         <p class="price">₹849</p>
         <button class="btn" onclick="addToCart('Floral Pink Printed Lenin Saree', 849)">Add to Cart</button>
@@ -78,8 +80,8 @@
         <input type="email" id="email" placeholder="Email Address" required>
 
         <h3>Scan to Pay</h3>
-        <img src="svpaymentqr.jpg" alt="qr-code" style="max-width: 200px; margin: 10px 0;"/>
-        <p><strong>UPI ID:</strong> lakshmisana54@axl</p>
+        <img src="svpaymentqr.jpg" alt="QR Code" style="max-width: 200px; margin: 10px 0;"/>
+        <p><strong>UPI ID:</strong> <span style="color:#e91e63;">lakshmisana54@axl</span></p>
 
         <button type="submit" class="btn">Confirm Payment</button>
       </form>
@@ -95,8 +97,9 @@
   <!-- Footer -->
   <footer class="site-footer">
     <p>&copy; 2025 Siveera Collection's</p>
-    <p>📞 WhatsApp: <a href="https://wa.me/919966191975">9966191975</a> |
-       📸 Instagram: <a href="https://instagram.com/siveeracollections">@siveeracollections</a>
+    <p>
+      📞 WhatsApp: <a href="https://wa.me/919966191975">9966191975</a> |
+      📸 Instagram: <a href="https://instagram.com/siveeracollections">@siveeracollections</a>
     </p>
   </footer>
 
