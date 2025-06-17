@@ -398,3 +398,17 @@ body {
   background-color: #d81b60;
 }
 
+.sold-out {
+  background-color: #aaa;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: not-allowed;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.sold-out:hover {
+  background-color: #999;
+}
