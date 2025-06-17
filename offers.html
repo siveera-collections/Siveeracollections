@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Special Offers | Siveera Collection's</title>
+
+  <!-- ✅ Favicon in correct place -->
+  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://siveera-collections.github.io/Siveeracollections/favicon.png" />
+
+  <!-- Styles and Fonts -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -11,21 +17,16 @@
 <body>
 
   <!-- Header Placeholder -->
-<div id="header-placeholder"></div>
+  <div id="header-placeholder"></div>
 
-   <!-- Favicon (optional) -->
-  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-
-
-<!-- JavaScript to include header -->
-<script>
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-placeholder").innerHTML = data;
-    });
-</script>
+  <!-- JavaScript to include header -->
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+  </script>
 
   <!-- Offers Banner -->
   <section class="page-banner">
@@ -65,8 +66,10 @@
   <!-- Footer -->
   <footer class="site-footer">
     <p>&copy; 2025 Siveera Collection's</p>
-    <p>📞 WhatsApp: <a href="https://wa.me/919966191975" style="color:#e91e63;">9966191975</a> | 📸 Instagram: 
-    <a href="https://instagram.com/siveeracollections" style="color:#e91e63;">@siveeracollections</a></p>
+    <p>
+      📞 WhatsApp: <a href="https://wa.me/919966191975" style="color:#e91e63;">9966191975</a> |
+      📸 Instagram: <a href="https://instagram.com/siveeracollections" style="color:#e91e63;">@siveeracollections</a>
+    </p>
   </footer>
 
 </body>
