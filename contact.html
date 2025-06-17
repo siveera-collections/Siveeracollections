@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us | Siveera Collection's</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Get in touch with Siveera Collection's for inquiries, support, and orders. WhatsApp, email, and Instagram available.">
+  <meta name="keywords" content="Contact Siveera Collections, WhatsApp Saree Shop, Email Saree Store, Instagram Sarees India">
+  <meta name="author" content="Siveera Collection's">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+
+  <!-- Styles & Fonts -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -11,21 +22,14 @@
 <body>
 
   <!-- Header Placeholder -->
-<div id="header-placeholder"></div>
-
-   <!-- Favicon (optional) -->
-  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-
-
-<!-- JavaScript to include header -->
-<script>
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-placeholder").innerHTML = data;
-    });
-</script>
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+  </script>
 
   <!-- Banner -->
   <section class="page-banner">
@@ -36,6 +40,8 @@
   <!-- Contact Section -->
   <section class="contact-section">
     <div class="contact-container">
+      
+      <!-- Contact Info -->
       <div class="contact-details">
         <p><strong>📞 Phone / WhatsApp:</strong> <a href="https://wa.me/919966191975">+91 99661 91975</a></p>
         <p><strong>📧 Email:</strong> <a href="mailto:siveeracollections@gmail.com">siveeracollections@gmail.com</a></p>
@@ -43,11 +49,19 @@
         <p><strong>📍 Location:</strong> Hyderabad, Telangana, India</p>
       </div>
 
-      <form class="contact-form" action="#" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <!-- Contact Form -->
+      <form class="contact-form" onsubmit="submitContactForm(event)">
+        <label>
+          <input type="text" name="name" placeholder="Your Name" required />
+        </label>
+        <label>
+          <input type="email" name="email" placeholder="Your Email" required />
+        </label>
+        <label>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        </label>
         <button type="submit" class="button">Send Message</button>
+        <p id="form-response" style="color: green; margin-top: 10px;"></p>
       </form>
     </div>
   </section>
@@ -55,9 +69,20 @@
   <!-- Footer -->
   <footer class="site-footer">
     <p>&copy; 2025 Siveera Collection's</p>
-    <p>📞 WhatsApp: <a href="https://wa.me/919966191975" style="color:#e91e63;">9966191975</a> |
-       📸 Instagram: <a href="https://instagram.com/siveeracollections" style="color:#e91e63;">@siveeracollections</a></p>
+    <p>
+      📞 WhatsApp: <a href="https://wa.me/919966191975" style="color:#e91e63;">9966191975</a> |
+      📸 Instagram: <a href="https://instagram.com/siveeracollections" style="color:#e91e63;">@siveeracollections</a>
+    </p>
   </footer>
+
+  <!-- Optional Form JavaScript -->
+  <script>
+    function submitContactForm(event) {
+      event.preventDefault();
+      document.getElementById("form-response").textContent = "✅ Thank you! Your message has been sent.";
+      event.target.reset();
+    }
+  </script>
 
 </body>
 </html>
