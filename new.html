@@ -2,24 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>New Arrivals | Siveera Collection's</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop | Siveera Collection's</title>
 
-  <!-- ✅ Favicon placed properly in <head> -->
+  <!-- Favicon -->
   <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="https://siveera-collections.github.io/Siveeracollections/favicon.png" />
 
-  <!-- Styles & Fonts -->
+  <!-- Styles and Fonts -->
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    .category-title {
+      text-align: center;
+      color: #e91e63;
+      font-size: 2rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      max-width: 250px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .price {
+      font-size: 18px;
+      color: #333;
+      margin: 10px 0;
+    }
+
+    .add-to-cart {
+      background-color: #e91e63;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .add-to-cart:hover {
+      background-color: #c2185b;
+    }
+
+    .page-banner {
+      text-align: center;
+      padding: 40px 10px 20px;
+      background: #f9f3f4;
+    }
+
+    .page-banner h1 {
+      color: #e91e63;
+      font-size: 2.5rem;
+    }
+
+    .page-banner p {
+      font-size: 1rem;
+      color: #444;
+    }
+  </style>
 </head>
+
 <body>
-
-  <!-- Header Placeholder -->
+  <!-- Header -->
   <div id="header-placeholder"></div>
-
-  <!-- JavaScript to include header -->
   <script>
     fetch("header.html")
       .then(response => response.text())
@@ -31,7 +97,7 @@
   <!-- Page Banner -->
   <section class="page-banner">
     <h1>New Arrivals</h1>
-    <p>Fresh styles just for you</p>
+    <p>WILL BE AVAILABLE SOON</p>
   </section>
 
   <!-- Product Grid -->
