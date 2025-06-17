@@ -6,6 +6,7 @@
   <title>Banarasi Fancy Pattu - Siveera Collection's</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="favicon.png" type="image/png"/>
 </head>
 <body>
 
@@ -17,12 +18,7 @@
       .then(data => document.getElementById("header-placeholder").innerHTML = data);
   </script>
 
-   <!-- Favicon (optional) -->
-  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-
-
-  <!-- Page Banner -->
+  <!-- Banner -->
   <section class="page-banner hero-small">
     <h1>Banarasi Fancy Pattu Sarees</h1>
     <p>Elegant and Light-Weight Collection</p>
@@ -33,54 +29,86 @@
     <div class="container">
       <h2 class="section-title">Our Latest Collection</h2>
       <div class="product-grid">
+
+        <!-- Existing Sarees -->
         <div class="product-card">
-          <img src="banarasipinkNEW.jpg" alt="Saree 1">
+          <img src="banarasipinkNEW.jpg" alt="Pink Saree">
           <h3>Pink with Silver and Black Border</h3>
           <p class="price">₹1,199</p>
           <button class="btn" onclick="addToCart('Pink with Silver and Black Border', 1199)">Add to Cart</button>
         </div>
 
         <div class="product-card">
-          <img src="aquablueNEW.jpg" alt="Saree 2">
+          <img src="aquablueNEW.jpg" alt="Aqua Blue Saree">
           <h3>Aqua Blue with Purple Border</h3>
           <p class="price">₹1,199</p>
           <button class="btn" onclick="addToCart('Aqua Blue with Purple Border', 1199)">Add to Cart</button>
         </div>
 
         <div class="product-card">
-          <img src="purpleNEW.jpg" alt="Saree 3">
+          <img src="purpleNEW.jpg" alt="Purple Saree">
           <h3>Purple with Green Border</h3>
           <p class="price">₹1,199</p>
           <button class="btn" onclick="addToCart('Purple with Green Border', 1199)">Add to Cart</button>
         </div>
 
         <div class="product-card">
-          <img src="aquablueNEW2.jpg" alt="Saree 4">
+          <img src="aquablueNEW2.jpg" alt="Aqua Model 2">
           <h3>Purple with Green Border (Model 2)</h3>
           <p class="price">₹1,199</p>
           <button class="btn" onclick="addToCart('Purple with Green Border (Model 2)', 1199)">Add to Cart</button>
         </div>
 
         <div class="product-card">
-          <img src="purpleNEW3.jpg" alt="Saree 5">
+          <img src="purpleNEW3.jpg" alt="Purple Model 3">
           <h3>Purple with Dark Blue Border (Model 2)</h3>
           <p class="price">₹1,199</p>
           <button class="btn" onclick="addToCart('Purple with Dark Blue Border (Model 2)', 1199)">Add to Cart</button>
         </div>
 
         <div class="product-card">
-          <img src="pinkNEW2.jpg" alt="Saree 6">
+          <img src="pinkNEW2.jpg" alt="Pink Model 2">
           <h3>Pink with Silver and Black Border (Model 2)</h3>
           <p class="price">₹1,199</p>
           <button class="btn" onclick="addToCart('Pink with Silver and Black Border (Model 2)', 1199)">Add to Cart</button>
         </div>
 
         <div class="product-card">
-          <img src="redNEW.jpg" alt="Saree 7">
+          <img src="redNEW.jpg" alt="Red Saree">
           <h3>Red with Silver and Green Border</h3>
           <p class="price">₹1,199</p>
           <button class="btn" onclick="addToCart('Red with Silver and Green Border', 1199)">Add to Cart</button>
         </div>
+
+        <!-- New Sarees -->
+        <div class="product-card">
+          <img src="skyblue.jpg" alt="Sky Blue Saree">
+          <h3>Sky Blue with Pink Border</h3>
+          <p class="price">₹1,199</p>
+          <button class="btn" onclick="addToCart('Sky Blue with Pink Border', 1199)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="navyblue.jpg" alt="Navy Blue Saree">
+          <h3>Navy Blue with Gold Border</h3>
+          <p class="price">₹1,199</p>
+          <button class="btn" onclick="addToCart('Navy Blue with Gold Border', 1199)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="peach.jpg" alt="Peach Saree">
+          <h3>Peach with Silver Border</h3>
+          <p class="price">₹1,199</p>
+          <button class="btn" onclick="addToCart('Peach with Silver Border', 1199)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="green.jpg" alt="Green Saree">
+          <h3>Green with Pink Border</h3>
+          <p class="price">₹1,199</p>
+          <button class="btn" onclick="addToCart('Green with Pink Border', 1199)">Add to Cart</button>
+        </div>
+
       </div>
     </div>
   </section>
@@ -99,7 +127,6 @@
         <input type="text" id="state" placeholder="State" required>
         <input type="text" id="country" placeholder="Country" required>
         <input type="text" id="pincode" placeholder="Pincode" required>
-
         <input type="tel" id="phone1" placeholder="Phone Number 1" required>
         <input type="tel" id="phone2" placeholder="Phone Number 2" required>
         <input type="email" id="email" placeholder="Email Address" required>
