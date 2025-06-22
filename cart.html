@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cart | Siveera Collection's</title>
   <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="style.css" />
@@ -37,6 +37,19 @@
     .whatsapp-btn {
       background-color: #25D366;
     }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+    .qty-controls button {
+      padding: 4px 10px;
+      font-size: 18px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -46,11 +59,11 @@
     <div id="billing-form" class="billing-form card" style="display: none;">
       <h2 style="color: #e91e63; text-align: center; margin-bottom: 20px;">Step 1: Enter Billing Details</h2>
       <form onsubmit="showPaymentSection(event)" style="display: flex; flex-direction: column; gap: 15px;">
-        <input type="text" id="name" placeholder="Full Name" required>
-        <input type="text" id="city" placeholder="Full Address" required>
-        <input type="tel" id="phone1" placeholder="Mobile Number (Primary)" required>
-        <input type="tel" id="phone2" placeholder="Mobile Number (Alternate)">
-        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="text" id="city" placeholder="Full Address" required />
+        <input type="tel" id="phone1" placeholder="Mobile Number (Primary)" required />
+        <input type="tel" id="phone2" placeholder="Mobile Number (Alternate)" />
+        <input type="email" id="email" placeholder="Email Address" required />
         <button type="submit" class="btn">Next</button>
       </form>
     </div>
@@ -59,7 +72,7 @@
       <h2 style="color: #e91e63; text-align: center; margin-bottom: 20px;">Step 2: Confirm Payment</h2>
       <p style="text-align: center;">Scan the QR code using your UPI app</p>
       <div style="text-align: center;">
-        <img src="siveerapayments.jpg" alt="QR Code" style="max-width: 200px; border-radius: 8px;">
+        <img src="siveerapayments.jpg" alt="QR Code" style="max-width: 200px; border-radius: 8px;" />
       </div>
       <p style="text-align: center; color: #555;">After payment, confirm your order below.</p>
       <div style="text-align: center;">
@@ -82,15 +95,52 @@
         cartDiv.innerHTML = "<h2 style='text-align:center;'>Your cart is empty.</h2>";
         return;
       }
+
       let total = 0;
-      let html = "<h2 style='color:#e91e63;'>Your Cart</h2><ul style='list-style:none; padding-left:0;'>";
-      cartItems.forEach(item => {
-        html += `<li>${item.name} - ₹${item.price} × ${item.quantity}</li>`;
+      let html = "<h2 style='color:#e91e63;'>Your Cart</h2><ul style='list-style:none; padding: 0;'>";
+
+      cartItems.forEach((item, index) => {
         total += item.price * item.quantity;
+
+        html += `
+          <li class="cart-item">
+            <span>${item.name}</span>
+            <div class="qty-controls">
+              <button onclick="updateQuantity(${index}, -1)">−</button>
+              <span>${item.quantity}</span>
+              <button onclick="updateQuantity(${index}, 1)">+</button>
+            </div>
+            <span>₹${item.price * item.quantity}</span>
+            <button onclick="removeItem(${index})" style="background:#f44336; color:white; padding:5px 10px; border-radius:5px;">🗑️</button>
+          </li>`;
       });
-      html += `</ul><p style='font-weight:bold;'>Total: ₹${total}</p>`;
-      html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
+
+      html += `</ul>
+        <p style='font-weight:bold; text-align:right; margin-top: 10px;'>Total: ₹${total}</p>
+        <div style='text-align: center; margin-top: 20px;'>
+          <button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>
+        </div>`;
+
       cartDiv.innerHTML = html;
+    }
+
+    function updateQuantity(index, change) {
+      if (cartItems[index]) {
+        cartItems[index].quantity += change;
+        if (cartItems[index].quantity <= 0) {
+          cartItems.splice(index, 1);
+        }
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        showCart();
+      }
+    }
+
+    function removeItem(index) {
+      if (confirm("Remove this item from cart?")) {
+        cartItems.splice(index, 1);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        showCart();
+      }
     }
 
     function proceedToPayment() {
@@ -113,8 +163,12 @@
       const orderSummary = cartItems.map(i => `${i.name} - ₹${i.price} × ${i.quantity}`).join('%0A');
       const total = cartItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
       const msg = `🛍️ *New Order Received*%0A%0A👤 Name: ${orderData.name}%0A🏡 Address: ${orderData.city}%0A📞 Phone 1: ${orderData.phone1}%0A📞 Phone 2: ${orderData.phone2}%0A📧 Email: ${orderData.email}%0A%0A🧾 *Order:*%0A${orderSummary}%0A💰 *Total: ₹${total}*%0APayment Confirmed`;
+
       window.open(`https://wa.me/919966191975?text=${msg}`, "_blank");
-      document.getElementById("confirmation-message").innerText = "Payment is Validating... Please upload payment screenshot via WhatsApp.";
+
+      document.getElementById("confirmation-message").innerText =
+        "Payment is Validating... Please upload payment screenshot via WhatsApp.";
+      
       cartItems = [];
       localStorage.removeItem("cartItems");
     }
