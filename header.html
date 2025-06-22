@@ -1,4 +1,6 @@
-<!-- header.html -->
+<!-- FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
   .site-header {
     position: sticky;
@@ -117,6 +119,7 @@
     // Show cart count from localStorage
     const cartCount = document.getElementById("cart-count");
     const cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
-    cartCount.innerText = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    const count = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    cartCount.textContent = count;
   });
 </script>
