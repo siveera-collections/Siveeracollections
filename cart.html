@@ -29,9 +29,19 @@
       background-color: #e91e63;
       color: white;
       border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .qty-btn {
+      padding: 5px 10px;
+      font-size: 14px;
+      margin: 0 5px;
+      background: #f4f4f4;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 4px;
       cursor: pointer;
     }
     .whatsapp-btn {
@@ -39,16 +49,18 @@
     }
     .cart-item {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ccc;
-      padding: 10px 0;
+      margin-bottom: 20px;
+      gap: 15px;
     }
-    .qty-controls button {
-      padding: 4px 10px;
-      font-size: 18px;
-      margin: 0 5px;
-      cursor: pointer;
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .cart-details {
+      flex-grow: 1;
     }
   </style>
 </head>
@@ -57,7 +69,7 @@
     <div id="cart-display"></div>
 
     <div id="billing-form" class="billing-form card" style="display: none;">
-      <h2 style="color: #e91e63; text-align: center; margin-bottom: 20px;">Step 1: Enter Billing Details</h2>
+      <h2 style="color: #e91e63; text-align: center;">Step 1: Enter Billing Details</h2>
       <form onsubmit="showPaymentSection(event)" style="display: flex; flex-direction: column; gap: 15px;">
         <input type="text" id="name" placeholder="Full Name" required />
         <input type="text" id="city" placeholder="Full Address" required />
@@ -69,7 +81,7 @@
     </div>
 
     <div id="payment-form" class="payment-form card" style="display: none;">
-      <h2 style="color: #e91e63; text-align: center; margin-bottom: 20px;">Step 2: Confirm Payment</h2>
+      <h2 style="color: #e91e63; text-align: center;">Step 2: Confirm Payment</h2>
       <p style="text-align: center;">Scan the QR code using your UPI app</p>
       <div style="text-align: center;">
         <img src="siveerapayments.jpg" alt="QR Code" style="max-width: 200px; border-radius: 8px;" />
@@ -97,50 +109,41 @@
       }
 
       let total = 0;
-      let html = "<h2 style='color:#e91e63;'>Your Cart</h2><ul style='list-style:none; padding: 0;'>";
+      let html = "<h2 style='color:#e91e63;'>Your Cart</h2>";
 
       cartItems.forEach((item, index) => {
         total += item.price * item.quantity;
-
         html += `
-          <li class="cart-item">
-            <span>${item.name}</span>
-            <div class="qty-controls">
-              <button onclick="updateQuantity(${index}, -1)">−</button>
-              <span>${item.quantity}</span>
-              <button onclick="updateQuantity(${index}, 1)">+</button>
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="cart-details">
+              <strong>${item.name}</strong><br/>
+              ₹${item.price} × ${item.quantity} = ₹${item.price * item.quantity}<br/>
+              <button class="qty-btn" onclick="changeQty(${index}, -1)">−</button>
+              <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+              <button class="qty-btn" onclick="removeItem(${index})">🗑 Remove</button>
             </div>
-            <span>₹${item.price * item.quantity}</span>
-            <button onclick="removeItem(${index})" style="background:#f44336; color:white; padding:5px 10px; border-radius:5px;">🗑️</button>
-          </li>`;
+          </div>`;
       });
 
-      html += `</ul>
-        <p style='font-weight:bold; text-align:right; margin-top: 10px;'>Total: ₹${total}</p>
-        <div style='text-align: center; margin-top: 20px;'>
-          <button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>
-        </div>`;
-
+      html += `<p style='font-weight:bold;'>Total: ₹${total}</p>`;
+      html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
       cartDiv.innerHTML = html;
     }
 
-    function updateQuantity(index, change) {
-      if (cartItems[index]) {
-        cartItems[index].quantity += change;
-        if (cartItems[index].quantity <= 0) {
-          cartItems.splice(index, 1);
-        }
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        showCart();
+    function changeQty(index, delta) {
+      cartItems[index].quantity += delta;
+      if (cartItems[index].quantity <= 0) {
+        cartItems.splice(index, 1);
       }
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      showCart();
     }
 
     function removeItem(index) {
-      if (confirm("Remove this item from cart?")) {
-        cartItems.splice(index, 1);
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        showCart();
-      }
+      cartItems.splice(index, 1);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      showCart();
     }
 
     function proceedToPayment() {
@@ -160,15 +163,14 @@
     }
 
     function placeOrder() {
-      const orderSummary = cartItems.map(i => `${i.name} - ₹${i.price} × ${i.quantity}`).join('%0A');
+      const summary = cartItems.map(i => `${i.name} - ₹${i.price} × ${i.quantity}`).join('%0A');
       const total = cartItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
-      const msg = `🛍️ *New Order Received*%0A%0A👤 Name: ${orderData.name}%0A🏡 Address: ${orderData.city}%0A📞 Phone 1: ${orderData.phone1}%0A📞 Phone 2: ${orderData.phone2}%0A📧 Email: ${orderData.email}%0A%0A🧾 *Order:*%0A${orderSummary}%0A💰 *Total: ₹${total}*%0APayment Confirmed`;
+      const msg = `🛍️ *New Order Received*%0A%0A👤 Name: ${orderData.name}%0A🏡 Address: ${orderData.city}%0A📞 Phone 1: ${orderData.phone1}%0A📞 Phone 2: ${orderData.phone2}%0A📧 Email: ${orderData.email}%0A%0A🧾 *Order Details:*%0A${summary}%0A💰 *Total: ₹${total}*%0APayment Confirmed`;
 
       window.open(`https://wa.me/919966191975?text=${msg}`, "_blank");
 
       document.getElementById("confirmation-message").innerText =
         "Payment is Validating... Please upload payment screenshot via WhatsApp.";
-      
       cartItems = [];
       localStorage.removeItem("cartItems");
     }
