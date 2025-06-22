@@ -453,12 +453,12 @@
 <script>
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-  function addToCart(name, price) {
+  function addToCart(name, price, image) {
     const existing = cartItems.find(item => item.name === name);
     if (existing) {
       existing.quantity += 1;
     } else {
-      cartItems.push({ name, price, quantity: 1 });
+      cartItems.push({ name, price, image, quantity: 1 });
     }
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     updateCartCount();
@@ -473,8 +473,10 @@
 
   function showToast() {
     const toast = document.getElementById("toast");
-    toast.style.display = "block";
-    setTimeout(() => toast.style.display = "none", 1500);
+    if (toast) {
+      toast.style.display = "block";
+      setTimeout(() => toast.style.display = "none", 1500);
+    }
   }
 
   // Initialize count when page loads
