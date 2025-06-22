@@ -438,44 +438,56 @@
   </section>
 
   <!-- Cart & Billing Section -->
-<section class="cart-payment-section">
-  <div id="cart-display"></div>
+<section class="cart-payment-section" style="font-family: 'Urbanist', sans-serif; padding: 40px 20px; max-width: 800px; margin: auto;">
+  <div id="cart-display" style="margin-bottom: 40px;"></div>
 
-  <div class="billing-form" style="display: none;" id="billing-form">
-    <h2>Billing & Payment</h2>
-    <form onsubmit="placeOrder(event)">
+  <!-- Billing Step -->
+  <div class="billing-form card" style="display: none; border: 1px solid #ddd; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" id="billing-form">
+    <h2 style="color: #e91e63; text-align: center; margin-bottom: 20px;">Step 1: Enter Billing Details</h2>
+    <form onsubmit="showPaymentSection(event)" style="display: flex; flex-direction: column; gap: 15px;">
       <input type="text" id="name" placeholder="Full Name" required>
       <input type="text" id="city" placeholder="Full Address" required>
       <input type="tel" id="phone1" placeholder="Mobile Number (Primary)" required>
       <input type="tel" id="phone2" placeholder="Mobile Number (Alternate)">
       <input type="email" id="email" placeholder="Email Address" required>
-
-      <h3>Scan to Pay</h3>
-      <img src="siveerapayments.jpg" alt="qr-code" style="max-width: 200px; margin: 10px 0;"/>
-      <p>After payment, click below to confirm:</p>
-
-      <button type="submit" class="btn">Confirm Payment</button>
+      <button type="submit" class="btn" style="background-color: #e91e63; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; cursor: pointer;">Next</button>
     </form>
+  </div>
 
-    <a class="btn whatsapp-btn" href="https://wa.me/919966191975?text=I%20have%20placed%20my%20order%20and%20paid.%20Please%20check%20my%20payment%20screenshot." target="_blank">
-      Upload Screenshot via WhatsApp
-    </a>
+  <!-- Payment Step -->
+  <div class="payment-form card" style="display: none; margin-top: 40px; border: 1px solid #ddd; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" id="payment-form">
+    <h2 style="color: #e91e63; text-align: center; margin-bottom: 20px;">Step 2: Confirm Payment</h2>
+    <p style="text-align: center; font-size: 16px;">Scan the QR code below using your UPI app</p>
+    <div style="text-align: center;">
+      <img src="svpaymentqr.jpg" alt="qr-code" style="max-width: 200px; margin: 20px auto; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"/>
+    </div>
+    <p style="text-align: center; font-size: 15px; color: #555;">Once you've completed the payment, please confirm your order below.</p>
 
-    <p id="confirmation-message" style="color: green; font-weight: bold; margin-top: 20px;"></p>
+    <div style="text-align: center; margin-top: 20px;">
+      <button onclick="placeOrder()" class="btn" style="background-color: #4caf50; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer;">✅ Confirm Payment</button>
+    </div>
+
+    <div style="text-align: center; margin-top: 15px;">
+      <a class="btn whatsapp-btn" href="https://wa.me/919966191975?text=I%20have%20placed%20my%20order%20and%20paid.%20Please%20check%20my%20payment%20screenshot." target="_blank" style="display: inline-block; margin-top: 12px; color: #fff; background-color: #25D366; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 15px;">📸 Upload Screenshot via WhatsApp</a>
+    </div>
+
+    <p id="confirmation-message" style="color: green; font-weight: bold; text-align: center; margin-top: 20px;"></p>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="site-footer">
-  <p>&copy; 2025 Siveera Collection's</p>
-  <p>📞 WhatsApp: <a href="https://wa.me/919966191975">9966191975</a> |
-     📸 Instagram: <a href="https://instagram.com/siveeracollections">@siveeracollections</a>
+<footer class="site-footer" style="text-align: center; padding: 30px 10px; background-color: #f4f4f4; margin-top: 40px;">
+  <p style="margin: 5px 0;">&copy; 2025 Siveera Collection's</p>
+  <p>
+    📞 WhatsApp: <a href="https://wa.me/919966191975" style="color: #e91e63;">9966191975</a> |
+    📸 Instagram: <a href="https://instagram.com/siveeracollections" style="color: #e91e63;">@siveeracollections</a>
   </p>
 </footer>
 
 <!-- JavaScript -->
 <script>
   let cartItems = [];
+  let orderData = {};
 
   function addToCart(name, price) {
     const existing = cartItems.find(item => item.name === name);
@@ -491,18 +503,18 @@
   function showCart() {
     const cartDiv = document.getElementById("cart-display");
     if (cartItems.length === 0) {
-      cartDiv.innerHTML = "<h2>Your cart is empty.</h2>";
+      cartDiv.innerHTML = "<h2 style='text-align:center;'>Your cart is empty.</h2>";
       return;
     }
 
     let total = 0;
-    let html = "<h2>Your Cart</h2><ul>";
+    let html = "<h2 style='color:#e91e63;'>Your Cart</h2><ul style='list-style:none; padding-left:0;'>";
     cartItems.forEach(item => {
-      html += `<li>${item.name} - ₹${item.price} × ${item.quantity}</li>`;
+      html += `<li style='margin-bottom: 10px;'>${item.name} - ₹${item.price} × ${item.quantity}</li>`;
       total += item.price * item.quantity;
     });
-    html += `</ul><p><strong>Total: ₹${total}</strong></p>`;
-    html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
+    html += `</ul><p style='font-weight:bold;'>Total: ₹${total}</p>`;
+    html += `<button class="btn" onclick="proceedToPayment()" style='background-color:#e91e63; color:white; padding:10px 16px; border:none; border-radius:6px; cursor:pointer;'>Proceed to Payment</button>`;
     cartDiv.innerHTML = html;
   }
 
@@ -516,25 +528,30 @@
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 
-  function placeOrder(e) {
+  function showPaymentSection(e) {
     e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const city = document.getElementById("city").value;
-    const phone1 = document.getElementById("phone1").value;
-    const phone2 = document.getElementById("phone2").value;
-    const email = document.getElementById("email").value;
+    orderData.name = document.getElementById("name").value;
+    orderData.city = document.getElementById("city").value;
+    orderData.phone1 = document.getElementById("phone1").value;
+    orderData.phone2 = document.getElementById("phone2").value;
+    orderData.email = document.getElementById("email").value;
 
+    document.getElementById("billing-form").style.display = "none";
+    document.getElementById("payment-form").style.display = "block";
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+
+  function placeOrder() {
     const orderSummary = cartItems.map(i => `${i.name} - ₹${i.price} × ${i.quantity}`).join('%0A');
     const total = cartItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
-    const msg = `🛍️ *New Order Received*%0A%0A👤 Name: ${name}%0A🏡 Address: ${city}%0A📞 Phone 1: ${phone1}%0A📞 Phone 2: ${phone2}%0A📧 Email: ${email}%0A%0A🧾 *Order Details:*%0A${orderSummary}%0A💰 *Total: ₹${total}*%0A✅ Payment Confirmed`;
+    const msg = `🛍️ *New Order Received*%0A%0A👤 Name: ${orderData.name}%0A🏡 Address: ${orderData.city}%0A📞 Phone 1: ${orderData.phone1}%0A📞 Phone 2: ${orderData.phone2}%0A📧 Email: ${orderData.email}%0A%0A🧾 *Order Details:*%0A${orderSummary}%0A💰 *Total: ₹${total}*%0A✅ Payment Confirmed`;
 
     window.open(`https://wa.me/919966191975?text=${msg}`, "_blank");
 
     document.getElementById("confirmation-message").innerText =
-      "Payment successful! Your order has been placed.";
-    document.querySelector("#billing-form form").reset();
+      "✅ Payment successful! Your order has been placed.";
     document.getElementById("cart-display").innerHTML = "";
     cartItems = [];
   }
@@ -542,4 +559,5 @@
 
 </body>
 </html>
+
 
