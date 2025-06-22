@@ -484,9 +484,8 @@
   </p>
 </footer>
 
-<!-- JavaScript -->
 <script>
-  let cartItems = [];
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   let orderData = {};
 
   function addToCart(name, price) {
@@ -496,6 +495,8 @@
     } else {
       cartItems.push({ name, price, quantity: 1 });
     }
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    updateCartCount();
     showCart();
     scrollToCart();
   }
@@ -546,18 +547,31 @@
     const orderSummary = cartItems.map(i => `${i.name} - ₹${i.price} × ${i.quantity}`).join('%0A');
     const total = cartItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
-    const msg = `🛍️ *New Order Received*%0A%0A👤 Name: ${orderData.name}%0A🏡 Address: ${orderData.city}%0A📞 Phone 1: ${orderData.phone1}%0A📞 Phone 2: ${orderData.phone2}%0A📧 Email: ${orderData.email}%0A%0A🧾 *Order Details:*%0A${orderSummary}%0A💰 *Total: ₹${total}*%0A✅ Payment Confirmed`;
+    const msg = `🛍️ *New Order Received*%0A%0A👤 Name: ${orderData.name}%0A🏡 Address: ${orderData.city}%0A📞 Phone 1: ${orderData.phone1}%0A📞 Phone 2: ${orderData.phone2}%0A📧 Email: ${orderData.email}%0A%0A🧾 *Order Details:*%0A${orderSummary}%0A💰 *Total: ₹${total}*%0APayment Confirmed`;
 
     window.open(`https://wa.me/919966191975?text=${msg}`, "_blank");
 
     document.getElementById("confirmation-message").innerText =
-      "Payment is Validating..., Meanwhile, please upload your payment screenshot on WhatsApp by clicking the button below.";
-    document.getElementById("cart-display").innerHTML = "";
+      " Payment is Validating... Meanwhile, please upload your payment screenshot on WhatsApp by clicking the button below.";
+    
     cartItems = [];
+    localStorage.removeItem("cartItems");
+    updateCartCount();
+    document.getElementById("cart-display").innerHTML = "";
   }
+
+  function updateCartCount() {
+    const count = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    const countSpan = document.getElementById("cart-count");
+    if (countSpan) countSpan.innerText = count;
+  }
+
+  // Initialize on load
+  document.addEventListener("DOMContentLoaded", () => {
+    updateCartCount();
+    showCart(); // optional: preload cart section
+  });
 </script>
 
-</body>
-</html>
 
 
