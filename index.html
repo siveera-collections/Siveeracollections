@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Siveera Collections | Traditional Elegance in Sarees</title>
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="Unveil the magic of timeless sarees at Siveera Collections. Premium Banarasi, Ricco Pattu, Dola Zari, and more." />
   <meta name="keywords" content="Siveera Collections, sarees, Banarasi, Ricco Pattu, Dola Zari, traditional wear, online shopping" />
   <meta name="author" content="Siveera Team" />
   <link rel="canonical" href="https://siveera-collections.github.io/Siveeracollections/" />
 
-  <!-- Open Graph Meta (Facebook, LinkedIn, etc.) -->
+  <!-- Open Graph Meta -->
   <meta property="og:title" content="Siveera Collections | Traditional Elegance in Sarees" />
   <meta property="og:description" content="Explore our premium saree collections featuring Banarasi, Ricco Pattu, and more. Elegant. Timeless. You." />
   <meta property="og:url" content="https://siveera-collections.github.io/Siveeracollections/" />
@@ -25,10 +24,9 @@
   <meta name="twitter:description" content="Timeless sarees. Elegant styles. Discover your perfect piece at Siveera Collections." />
   <meta name="twitter:image" content="https://siveera-collections.github.io/Siveeracollections/preview.png" />
 
-  <!-- Favicon (optional) -->
+  <!-- Favicon -->
   <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-
 
   <!-- Fonts & Styles -->
   <link rel="stylesheet" href="style.css" />
@@ -39,8 +37,6 @@
 
 <!-- Header Placeholder -->
 <div id="header-placeholder"></div>
-
-<!-- JavaScript to include header -->
 <script>
   fetch("header.html")
     .then(response => response.text())
@@ -48,61 +44,53 @@
       document.getElementById("header-placeholder").innerHTML = data;
     });
 </script>
+
+<!-- Hero Section -->
+<section class="hero-home">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Traditional Elegance</h1>
+      <p>Unveil the magic of timeless sarees</p>
+      <a href="shop.html" class="btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
 <!-- Intro Section -->
 <section class="intro-section">
   <h2>Discover Our Signature Collections</h2>
   <p>Explore premium Banarasi, Chiffon Zari, Dola Zari, Kalamkari Printed, and more with stunning quality and craftsmanship.</p>
 </section>
 
-<!-- 🌟 Featured Products -->
-<section style="padding: 40px 20px; background-color: #fff;">
-  <h2 style="text-align: center; font-size: 2rem; color: #e91e63;">🌟 Featured Products</h2>
-  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 30px;">
-    <div style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; max-width: 220px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-      <img src="chiffon1.jpg" alt="Saree 1" style="width: 100%; border-radius: 8px;">
-      <h3 style="margin-top: 10px;">Olive Chiffon</h3>
-      <p style="color: #444;">₹799</p>
-      <button onclick="addToCart('Olive Chiffon', 799)" style="background-color: #e91e63; color: #fff; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">Add to Cart</button>
+<!-- Gallery Section -->
+<section class="gallery-section">
+  <h2 class="section-title">Our Saree Showcase</h2>
+  <div class="gallery-grid">
+    <img src="chiffon1.jpg" alt="Chiffon Saree">
+    <img src="banarasipinkNEW.jpg" alt="Banarasi Saree">
+    <img src="dola1.jpg" alt="Dola Zari Saree">
+    <img src="kalamkari1.jpg" alt="Kalamkari Saree">
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+  <h2 class="section-title">What Our Customers Say</h2>
+  <div class="testimonial-cards">
+    <div class="testimonial">
+      <p>"Absolutely loved the Banarasi saree! Great quality and fast delivery."</p>
+      <h4>- Anjali R.</h4>
     </div>
-    <div style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; max-width: 220px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-      <img src="banarasi1.jpg" alt="Saree 2" style="width: 100%; border-radius: 8px;">
-      <h3 style="margin-top: 10px;">Red Banarasi</h3>
-      <p style="color: #444;">₹999</p>
-      <button onclick="addToCart('Red Banarasi', 999)" style="background-color: #e91e63; color: #fff; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">Add to Cart</button>
+    <div class="testimonial">
+      <p>"I wore the Chiffon saree to a wedding and got so many compliments! Will order again."</p>
+      <h4>- Sneha K.</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Smooth shopping experience and the saree looks even better in person."</p>
+      <h4>- Priya D.</h4>
     </div>
   </div>
 </section>
-
-<!-- 🎁 Offer Banner -->
-<section style="background-color: #fce4ec; text-align: center; padding: 40px 20px;">
-  <h2 style="font-size: 1.8rem; color: #c2185b;">🎉 Exclusive Offer: 15% OFF</h2>
-  <p style="color: #444;">On Dola Silk Sarees – Limited time only!</p>
-  <a href="shop.html" style="display: inline-block; margin-top: 15px; background-color: #e91e63; color: white; padding: 10px 18px; border-radius: 6px; text-decoration: none;">Shop the Offer</a>
-</section>
-
-<!-- 💬 Testimonials -->
-<section style="padding: 40px 20px; background-color: #fff;">
-  <h2 style="text-align: center; color: #e91e63; font-size: 1.8rem;">💬 What Our Customers Say</h2>
-  <div style="max-width: 700px; margin: 20px auto; font-style: italic; text-align: center; color: #555;">
-    <p>“Amazing quality sarees and fast delivery. Loved the Banarasi collection!”</p>
-    <p style="font-weight: bold; color: #333;">— Priya, Hyderabad</p>
-  </div>
-</section>
-
-  <!-- About Us Section -->
-<section style="background-color: #fdf3f6; padding: 40px 20px;">
-  <div style="max-width: 800px; margin: auto; text-align: center;">
-    <h2 style="color: #e91e63; font-size: 2rem; margin-bottom: 20px;">👗 About Siveera Collections</h2>
-    <p style="font-size: 1rem; color: #444; line-height: 1.6;">
-      At <strong>Siveera Collections</strong>, we celebrate timeless elegance through handpicked sarees that blend tradition with modern style. 
-      From luxurious Banarasi to breezy Cotton and stunning Dola Silk, every piece reflects craftsmanship and cultural pride.
-    </p>
-    <p style="font-size: 1rem; color: #444; margin-top: 10px;">
-      Whether it’s a festival, wedding, or daily grace, we’re here to wrap you in elegance. 💫
-    </p>
-  </div>
-</section>
-
 
 <!-- Footer -->
 <footer class="site-footer">
@@ -110,3 +98,19 @@
   <p>📞 WhatsApp: <a href="https://wa.me/919966191975" style="color: #e91e63;">9966191975</a> | 📸 Instagram: <a href="https://instagram.com/siveeracollections" style="color: #e91e63;">@siveeracollections</a></p>
 </footer>
 
+<!-- WhatsApp Opt-in Popup -->
+<div id="whatsapp-popup" style="display:none; position:fixed; bottom:20px; right:20px; background:#e91e63; color:#fff; padding:15px 20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:1000;">
+  <p style="margin:0; font-size:16px;">📩 Join us on WhatsApp for exclusive offers!</p>
+  <div style="margin-top:10px; text-align:right;">
+    <a href="https://wa.me/919966191975?text=I%20want%20to%20join%20Siveera%20WhatsApp%20updates" target="_blank" style="background:#fff; color:#e91e63; padding:6px 12px; border-radius:5px; text-decoration:none; font-weight:bold;">Join Now</a>
+    <span onclick="document.getElementById('whatsapp-popup').style.display='none'" style="margin-left:15px; cursor:pointer;">✖</span>
+  </div>
+</div>
+<script>
+  setTimeout(() => {
+    document.getElementById('whatsapp-popup').style.display = 'block';
+  }, 7000);
+</script>
+
+</body>
+</html>
