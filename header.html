@@ -1,4 +1,83 @@
 <!-- header.html -->
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: 'Urbanist', sans-serif;
+  }
+  .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-section img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .logo-section span {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #e91e63;
+  }
+  .nav-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+  }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #e91e63;
+    transition: all 0.3s ease;
+  }
+  .nav-links a:hover {
+    color: #e91e63;
+  }
+  .nav-icons a {
+    margin-left: 15px;
+    font-size: 1.2rem;
+    color: #333;
+    position: relative;
+  }
+  .cart-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: #e91e63;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .nav-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .nav-links, .nav-icons {
+      margin-top: 10px;
+    }
+  }
+</style>
+
 <div class="site-header">
   <div class="container nav-wrapper">
     <div class="logo-section">
@@ -15,10 +94,14 @@
     <div class="nav-icons">
       <a href="#"><i class="fas fa-search"></i></a>
       <a href="https://wa.me/919966191975"><i class="fab fa-whatsapp"></i></a>
-      <a href="#"><i class="fas fa-shopping-cart"></i></a>
+      <a href="cart.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
     </div>
   </div>
 </div>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll('.nav-links a');
@@ -30,5 +113,10 @@
         link.classList.add("active");
       }
     });
+
+    // Show cart count from localStorage
+    const cartCount = document.getElementById("cart-count");
+    const cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+    cartCount.innerText = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   });
 </script>
