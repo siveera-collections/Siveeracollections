@@ -71,6 +71,7 @@
   </div>
 </section>
 
+
 <!-- Footer -->
 <footer class="site-footer">
   <p>&copy; 2025 Siveera Collections</p>
@@ -91,34 +92,5 @@
   }, 3000);
 </script>
 
-<!-- ✅ Server Downtime Notice -->
-<div id="downtime-banner" 
-     style="display:none; position:fixed; top:0; left:0; width:100%; background:#ff4d4d; color:#fff; text-align:center; padding:12px; font-weight:bold; z-index:2000;">
-  ⚠️ Our services are temporarily unavailable between 16:00 and 18:00 hrs. Please check back later.
-</div>
-
-<script>
-  function checkDowntime() {
-    const now = new Date();
-    const hours = now.getHours();
-
-    // Show banner if time is between 16:00 and 19:00
-    if (hours >= 16 && hours < 18) {
-      document.getElementById("downtime-banner").style.display = "block";
-    } else {
-      document.getElementById("downtime-banner").style.display = "none";
-    }
-  }
-
-  checkDowntime();
-
-  // Re-check every 5 minutes
-  setInterval(checkDowntime, 300000);
-</script>
-
 </body>
 </html>
-
-
-
-
