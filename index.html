@@ -103,7 +103,7 @@
     const hours = now.getHours();
 
     // Show banner if time is between 16:00 and 19:00
-    if (hours >= 16 && hours < 19) {
+    if (hours >= 12 && hours < 19) {
       document.getElementById("downtime-banner").style.display = "block";
     } else {
       document.getElementById("downtime-banner").style.display = "none";
@@ -119,3 +119,4 @@
 
 </body>
 </html>
+
