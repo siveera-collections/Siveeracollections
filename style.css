@@ -1,5 +1,5 @@
 /* ===============================
-   🌸 Base & Reset
+   🌈 RESET + BASE
 =================================*/
 * {
   margin: 0;
@@ -8,31 +8,28 @@
 }
 
 body {
-  font-family: 'Urbanist', sans-serif;
-  background-color: #fff;
-  color: #333;
+  font-family: "Urbanist", sans-serif;
+  background-color: #0a0a0a;
+  color: #eee;
   line-height: 1.6;
-  scroll-behavior: smooth;
-  transition: background 0.4s ease;
+  overflow-x: hidden;
 }
 
-/* Soft glowing scrollbar (desktop only) */
-@media (min-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #e91e63, #d3185d);
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
-  }
-  ::-webkit-scrollbar-track {
-    background: #f2f2f2;
-  }
+/* Neon scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #e91e63, #ff4081);
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(233, 30, 99, 0.7);
+}
+::-webkit-scrollbar-track {
+  background: #111;
 }
 
 /* ===============================
-   ⚙️ Container
+   ⚙️ CONTAINER
 =================================*/
 .container {
   max-width: 1200px;
@@ -41,20 +38,19 @@ body {
 }
 
 /* ===============================
-   💎 Header
+   💎 HEADER
 =================================*/
 .site-header {
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid #eee;
+  background: rgba(10, 10, 10, 0.9);
+  border-bottom: 1px solid rgba(233, 30, 99, 0.3);
+  backdrop-filter: blur(12px);
   padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 999;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(233, 30, 99, 0.1);
+  box-shadow: 0 0 30px rgba(233, 30, 99, 0.3);
 }
 
-.site-header .container,
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
@@ -74,24 +70,18 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #e91e63;
-  box-shadow: 0 0 10px rgba(233, 30, 99, 0.6);
-  transition: transform 0.3s;
-}
-.logo-section img:hover {
-  transform: rotate(10deg) scale(1.1);
+  box-shadow: 0 0 20px rgba(233, 30, 99, 0.7);
 }
 
-.logo,
 .logo-section span {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #e91e63;
-  text-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
+  color: #ff5fa2;
+  text-shadow: 0 0 10px #e91e63, 0 0 25px #ff4081;
+  letter-spacing: 1px;
 }
 
-/* ===============================
-   🔗 Navigation
-=================================*/
+/* Navigation */
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -100,57 +90,44 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: #333;
+  color: #ddd;
   font-weight: 500;
   position: relative;
-  transition: color 0.3s, transform 0.3s;
+  padding: 5px 8px;
+  transition: color 0.3s, text-shadow 0.3s;
 }
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: #e91e63;
-  transition: width 0.3s ease;
-}
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
-}
-.nav-links a:hover {
-  color: #e91e63;
-  transform: scale(1.1);
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff;
+  text-shadow: 0 0 10px #e91e63, 0 0 25px #ff4081;
 }
 
 .nav-icons a {
   margin-left: 10px;
-  color: #333;
-  font-size: 1.2rem;
-  transition: transform 0.3s;
-}
-.nav-icons a:hover {
-  color: #e91e63;
-  transform: scale(1.2);
+  color: #fff;
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px #e91e63;
 }
 
 /* ===============================
-   🌅 Hero Section
+   🌅 HERO SECTION
 =================================*/
 .hero-home {
-  background: url('siveeracollectionsimage.jpg') no-repeat center center/cover;
+  background: url("siveeracollectionsimage.jpg") no-repeat center center/cover;
   position: relative;
-  color: white;
+  color: #fff;
   text-align: center;
-  padding: 120px 20px;
+  padding: 140px 20px;
   overflow: hidden;
 }
 
 .hero-overlay {
-  background: radial-gradient(circle at center, rgba(0,0,0,0.45), rgba(0,0,0,0.7));
   position: absolute;
   inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(233, 30, 99, 0.5), rgba(0, 0, 0, 0.9));
+  filter: blur(10px);
+  animation: pulseGlow 5s infinite ease-in-out;
 }
 
 .hero-content {
@@ -158,198 +135,196 @@ body {
   z-index: 2;
   max-width: 800px;
   margin: auto;
-  animation: fadeInUp 1s ease both;
 }
 
 .hero-content h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+  font-size: 3.2rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 25px #ff4081, 0 0 55px rgba(233, 30, 99, 0.8);
+  animation: textGlow 3s infinite alternate ease-in-out;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: #ffd6e8;
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  color: #ffcce0;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes textGlow {
+  0% { text-shadow: 0 0 10px #e91e63, 0 0 25px #ff4081; }
+  100% { text-shadow: 0 0 25px #ff4081, 0 0 60px #e91e63; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.7; filter: blur(15px); }
 }
 
 /* ===============================
-   🧺 Product Cards
+   🧺 PRODUCT CARDS
 =================================*/
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
+  padding: 60px 20px;
 }
 
 .product-card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  overflow: hidden;
+  background: linear-gradient(145deg, #1b1b1b, #121212);
+  border: 1px solid rgba(233, 30, 99, 0.2);
+  border-radius: 15px;
   text-align: center;
+  padding-bottom: 10px;
+  box-shadow: 0 0 20px rgba(233, 30, 99, 0.2);
   transition: all 0.4s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transform-style: preserve-3d;
 }
+
 .product-card:hover {
   transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(233, 30, 99, 0.25);
+  box-shadow: 0 0 40px rgba(233, 30, 99, 0.5);
 }
+
 .product-card img {
   width: 100%;
   height: 250px;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  filter: brightness(0.9);
+  transition: all 0.4s ease;
 }
+
 .product-card:hover img {
-  transform: scale(1.15) rotate(1deg);
+  filter: brightness(1.1);
+  transform: scale(1.08);
 }
+
 .product-card h3 {
-  padding: 10px;
-  font-size: 1.05rem;
+  color: #fff;
+  margin-top: 10px;
   font-weight: 600;
+  text-shadow: 0 0 10px #ff5fa2;
 }
+
 .product-card .price {
-  color: #e91e63;
+  color: #ff5fa2;
   font-weight: 700;
-  padding-bottom: 10px;
-  text-shadow: 0 0 5px rgba(233, 30, 99, 0.4);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px #e91e63, 0 0 20px #ff4081;
 }
 
 /* ===============================
-   ✨ Buttons
+   💫 BUTTONS
 =================================*/
 .btn,
 .add-to-cart {
-  background: linear-gradient(135deg, #e91e63, #d3185d);
+  background: linear-gradient(135deg, #e91e63, #ff4081);
   color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
   border: none;
-  padding: 10px 22px;
-  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(233, 30, 99, 0.5);
+  box-shadow: 0 0 15px rgba(233, 30, 99, 0.7);
+  position: relative;
+  overflow: hidden;
 }
+
+.btn::after,
+.add-to-cart::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-20deg);
+  transition: 0.7s;
+}
+
+.btn:hover::after,
+.add-to-cart:hover::after {
+  left: 130%;
+}
+
 .btn:hover,
 .add-to-cart:hover {
-  background: linear-gradient(135deg, #ff4081, #c2185b);
-  box-shadow: 0 0 35px rgba(233, 30, 99, 0.7);
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 30px rgba(233, 30, 99, 0.9);
 }
 
 /* ===============================
-   💌 Contact Form
-=================================*/
-.contact-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 60px 0;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  transition: box-shadow 0.3s, border-color 0.3s;
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #e91e63;
-  box-shadow: 0 0 12px rgba(233, 30, 99, 0.4);
-  outline: none;
-}
-
-/* ===============================
-   🛒 Floating Cart
+   🛒 FLOATING CART
 =================================*/
 .floating-cart {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  background: linear-gradient(135deg, #e91e63, #d3185d);
+  background: linear-gradient(135deg, #e91e63, #ff4081);
   color: #fff;
-  padding: 16px;
+  padding: 18px;
   border-radius: 50%;
   font-size: 22px;
   cursor: pointer;
-  box-shadow: 0 0 25px rgba(233, 30, 99, 0.6);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 35px rgba(233, 30, 99, 0.8);
+  transition: all 0.4s ease;
+  animation: glowPulse 2.5s infinite;
 }
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 15px #ff5fa2, 0 0 35px #e91e63; }
+  50% { box-shadow: 0 0 25px #e91e63, 0 0 55px #ff5fa2; }
+}
+
 .floating-cart:hover {
-  transform: scale(1.1) rotate(10deg);
-  box-shadow: 0 0 40px rgba(233, 30, 99, 0.8);
+  transform: scale(1.1) rotate(12deg);
 }
 
 /* ===============================
-   🦶 Footer
+   🦶 FOOTER
 =================================*/
 .site-footer {
-  background: #fafafa;
+  background: #111;
   text-align: center;
   padding: 25px 20px;
-  border-top: 1px solid #eee;
-  color: #666;
   font-size: 0.95rem;
-  box-shadow: inset 0 8px 15px rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(233, 30, 99, 0.3);
+  color: #ccc;
+  box-shadow: 0 0 25px rgba(233, 30, 99, 0.3);
 }
+
 .site-footer a {
-  color: #e91e63;
+  color: #ff5fa2;
   text-decoration: none;
+  transition: text-shadow 0.3s;
 }
+
 .site-footer a:hover {
-  text-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
+  text-shadow: 0 0 10px #e91e63, 0 0 20px #ff4081;
 }
 
 /* ===============================
-   📱 Responsive Fixes
+   📱 RESPONSIVE
 =================================*/
 @media (max-width: 768px) {
   .nav-wrapper {
     flex-direction: column;
-    align-items: center;
+    gap: 10px;
   }
+
   .nav-links {
-    margin-top: 10px;
+    justify-content: center;
   }
+
   .hero-content h1 {
     font-size: 2.2rem;
   }
-  .hero-content p {
-    font-size: 1rem;
-  }
-  .contact-section {
-    flex-direction: column;
-  }
-}
 
-/* ===============================
-   🌈 Glow Animation Utilities
-=================================*/
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 5px rgba(233, 30, 99, 0.5); }
-  50% { box-shadow: 0 0 25px rgba(233, 30, 99, 0.8); }
-  100% { box-shadow: 0 0 5px rgba(233, 30, 99, 0.5); }
-}
-
-.glow-pulse {
-  animation: glowPulse 2s infinite ease-in-out;
+  .product-card {
+    margin-bottom: 15px;
+  }
 }
