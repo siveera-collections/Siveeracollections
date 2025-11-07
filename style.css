@@ -442,6 +442,13 @@ body {
   text-align: center;
   margin: 30px 0;
 }
+.site-header,
+#header-placeholder {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+}
 
 /* ===== Festive Background Gradient Glow ===== */
 body::before {
@@ -454,4 +461,5 @@ body::before {
   z-index: 0;
   pointer-events: none;
 }
+
 
