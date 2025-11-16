@@ -462,4 +462,46 @@ body::before {
   pointer-events: none;
 }
 
+/* ============================
+   MAINTENANCE MODE STYLING
+============================ */
+#maintenance-mode {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  z-index: 999999;
+  font-family: "Urbanist", sans-serif;
+}
+
+.maintenance-container h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.maintenance-container p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .maintenance-container h1 {
+    font-size: 2rem;
+  }
+  .maintenance-container p {
+    font-size: 1rem;
+  }
+}
+
 
