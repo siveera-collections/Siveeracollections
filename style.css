@@ -463,48 +463,39 @@ body::before {
 }
 
 /* ============================
-   MAINTENANCE MODE STYLING
+   MAINTENANCE MODE STYLING – FIXED FOR MOBILE
 ============================ */
 #maintenance-mode {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #fff;
+  height: 100dvh; /* Mobile-safe viewport height */
+  background: linear-gradient(135deg, #ffffff, #ffe6f0);
+  color: #e91e63;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 20px;
-  z-index: 999999;
+  z-index: 99999999 !important;
   font-family: "Urbanist", sans-serif;
 }
 
+/* Disable body glow background if maintenance screen is active */
+body.maintenance-active::before {
+  display: none !important;
+}
+
 .maintenance-container h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
+  font-size: 2.6rem;
   font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .maintenance-container p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .maintenance-container h1 {
-    font-size: 2rem;
-  }
-  .maintenance-container p {
-    font-size: 1rem;
-  }
-}
-
-  opacity: 0.9;
   color: #444;
 }
 
@@ -517,5 +508,4 @@ body::before {
     font-size: 1rem;
   }
 }
-
 
