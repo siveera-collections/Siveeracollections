@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siveera Collections | Traditional Elegance in Sarees</title>
+  <title>Siveera Collections | Traditional Elegance</title>
 
-  <!-- SEO -->
-  <meta name="description" content="Unveil the magic of timeless sarees at Siveera Collections. Premium Banarasi, Ricco Pattu, Dola Zari & more." />
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Fonts & Styles -->
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -20,34 +16,56 @@
 <!-- HEADER -->
 <div id="header-placeholder"></div>
 <script>
-fetch("header.html")
-  .then(r => r.text())
-  .then(d => document.getElementById("header-placeholder").innerHTML = d);
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header-placeholder").innerHTML = data);
 </script>
 
-<!-- HERO -->
+<!-- HERO SECTION -->
 <section class="hero-home">
-  <div class="hero-content">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
     <h1>Traditional Elegance</h1>
-    <p>Unveil the magic in every thread.</p>
-    <a href="shop.html" class="btn">Shop Now</a>
+    <p>Unveil the magic in every thread</p>
+    <a href="shop.html" class="btn-primary">Shop Now</a>
   </div>
 </section>
 
-<!-- INTRO SECTION -->
-<section class="section" style="text-align:center;">
-  <h2 class="section-title">Discover Our Signature Collections</h2>
-  <p class="section-subtitle">
-    Explore Banarasi, Chiffon Zari, Dola Zari, Kalamkari Printed & more with unmatched craftsmanship.
-  </p>
+<!-- CATEGORY CARDS -->
+<section class="category-section">
+  <h2 class="section-title">Explore Categories</h2>
+
+  <div class="category-grid">
+    <div class="cat-card">
+      <img src="banarasipinkNEW.jpg">
+      <h3>Banarasi Pattu</h3>
+    </div>
+
+    <div class="cat-card">
+      <img src="chiffon3.jpg">
+      <h3>Chiffon Zari Border</h3>
+    </div>
+
+    <div class="cat-card">
+      <img src="leninpink.jpg">
+      <h3>Cotton / Lenin</h3>
+    </div>
+
+    <div class="cat-card">
+      <img src="kalamkari3.jpg">
+      <h3>Kalamkari Printed</h3>
+    </div>
+  </div>
 </section>
 
-<!-- GALLERY -->
-<section class="section">
-  <h2 class="section-title">Our Saree Showcase</h2>
-  <div class="gallery-grid">
-    <img src="banarasipinkNEW.jpg" alt="Banarasi Saree">
-    <img src="kalamkari1.jpg" alt="Kalamkari Saree">
+<!-- FEATURED SHOWCASE -->
+<section class="showcase">
+  <h2 class="section-title">Featured Showcase</h2>
+
+  <div class="showcase-grid">
+    <img src="banarasipinkNEW.jpg">
+    <img src="dola2.jpg">
+    <img src="kalamkari7.jpg">
   </div>
 </section>
 
@@ -55,8 +73,8 @@ fetch("header.html")
 <footer class="site-footer">
   <p>&copy; 2025 Siveera Collections</p>
   <p>
-    📞 <a href="https://wa.me/919966191975">WhatsApp</a> |
-    📸 <a href="https://instagram.com/siveeracollections">Instagram</a>
+    📞 <a href="https://wa.me/919966191975">9966191975</a> |
+    📸 <a href="https://instagram.com/siveeracollections">@siveeracollections</a>
   </p>
 </footer>
 
