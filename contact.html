@@ -3,149 +3,173 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop | Siveera Collection's</title>
+  <title>Contact Us | Siveera Collections</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="https://siveera-collections.github.io/Siveeracollections/favicon.png" />
-
-  <!-- Styles and Fonts -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
 
   <style>
-    .category-title {
-      text-align: center;
-      color: #e91e63;
-      font-size: 2rem;
-      margin-top: 40px;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
 
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
+/* Banner */
+.page-banner {
+  margin-top:85px;
+  background:#FFF1EC;
+  padding:35px 15px;
+  text-align:center;
+}
+.page-banner h1 {
+  font-size:2.4rem; font-weight:700; color:#C07C85;
+}
+.page-banner p {
+  font-size:1.1rem; color:#7A575C;
+}
 
-    .product-card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 15px;
-      max-width: 250px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+/* Contact Section */
+.contact-section {
+  max-width:1200px;
+  margin:50px auto 80px;
+  padding:0 20px;
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
 
-    .product-card img {
-      width: 100%;
-      border-radius: 10px;
-    }
+/* Info Card */
+.contact-details {
+  flex:1;
+  min-width:300px;
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  border:1px solid #E8C4A9;
+  box-shadow:0 0 18px rgba(214,109,143,0.18);
+  font-size:1.1rem;
+  line-height:1.7;
+}
+.contact-details strong { color:#C07C85; }
+.contact-details a {
+  color:#D66D8F;
+  text-decoration:none;
+  font-weight:600;
+}
 
-    .price {
-      font-size: 18px;
-      color: #333;
-      margin: 10px 0;
-    }
+/* Form Card */
+.contact-form {
+  flex:1;
+  min-width:300px;
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  border:1px solid #E8C4A9;
+  box-shadow:0 0 18px rgba(214,109,143,0.18);
+}
+.contact-form input,
+.contact-form textarea {
+  width:100%;
+  padding:14px 18px;
+  border-radius:12px;
+  border:1px solid #E8C4A9;
+  font-size:1rem;
+  margin-bottom:14px;
+  outline:none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color:#D66D8F;
+}
 
-    .add-to-cart {
-      background-color: #e91e63;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+/* Submit Button */
+.button {
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:50px;
+  font-size:1.15rem;
+  font-weight:700;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(135deg,#E8C4A9,#D66D8F);
+  transition:.3s ease;
+}
+.button:hover {
+  transform:translateY(-3px);
+  box-shadow:0 0 15px rgba(214,109,143,0.35);
+}
 
-    .add-to-cart:hover {
-      background-color: #c2185b;
-    }
+.whatsapp-float {
+  position:fixed;
+  bottom:22px; right:22px;
+  background:#25D366;
+  color:white;
+  font-size:1.9rem;
+  padding:18px;
+  border-radius:50%;
+  box-shadow:0 0 20px rgba(0,0,0,0.18);
+  z-index:3000;
+}
 
-    .page-banner {
-      text-align: center;
-      padding: 40px 10px 20px;
-      background: #f9f3f4;
-    }
-
-    .page-banner h1 {
-      color: #e91e63;
-      font-size: 2.5rem;
-    }
-
-    .page-banner p {
-      font-size: 1rem;
-      color: #444;
-    }
   </style>
 </head>
 
 <body>
-  <!-- Header -->
-  <div id="header-placeholder"></div>
-  <script>
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header-placeholder").innerHTML = data;
-      });
-  </script>
 
-  <!-- Page Banner -->
-  <section class="page-banner">
-    <h1>Contact Us</h1>
-    <p>Reach Out Us For Any Queries!</p>
-  </section>
+<!-- Header -->
+<div id="header-placeholder"></div>
+<script>
+fetch("header.html")
+  .then(r=>r.text())
+  .then(d=>{document.getElementById("header-placeholder").innerHTML=d;});
+</script>
 
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <div class="contact-container">
-      
-      <!-- Contact Info -->
-      <div class="contact-details">
-        <p><strong>📞 Phone / WhatsApp:</strong> <a href="https://wa.me/919966191975">+91 99661 91975</a></p>
-        <p><strong>📧 Email:</strong> <a href="mailto:siveeracollections@gmail.com">siveeracollections@gmail.com</a></p>
-        <p><strong>📸 Instagram:</strong> <a href="https://instagram.com/siveeracollections">@siveeracollections</a></p>
-        <p><strong>📍 Location:</strong> Rajamahendravaram, East Godavari Dst, Andhra Pradesh, India</p>
-      </div>
+<!-- Banner -->
+<section class="page-banner">
+  <h1>Contact Us</h1>
+  <p>We’re happy to assist you anytime 💖</p>
+</section>
 
-      <!-- Contact Form -->
-      <form class="contact-form" onsubmit="submitContactForm(event)">
-        <label>
-          <input type="text" name="name" placeholder="Your Name" required />
-        </label>
-        <label>
-          <input type="email" name="email" placeholder="Your Email" required />
-        </label>
-        <label>
-          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        </label>
-        <button type="submit" class="button">Send Message</button>
-        <p id="form-response" style="color: green; margin-top: 10px;"></p>
-      </form>
-    </div>
-  </section>
+<!-- Contact Section -->
+<section class="contact-section">
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Siveera Collection's</p>
-    <p>
-      📞 WhatsApp: <a href="https://wa.me/919966191975" style="color:#e91e63;">9966191975</a> |
-      📸 Instagram: <a href="https://instagram.com/siveeracollections" style="color:#e91e63;">@siveeracollections</a>
-    </p>
-  </footer>
+  <!-- Details -->
+  <div class="contact-details">
+    <p><strong>📞 Phone / WhatsApp:</strong> <a href="https://wa.me/919966191975">+91 99661 91975</a></p>
+    <p><strong>📧 Email:</strong> <a href="mailto:siveeracollections@gmail.com">siveeracollections@gmail.com</a></p>
+    <p><strong>📸 Instagram:</strong> <a href="https://instagram.com/siveeracollections">@siveeracollections</a></p>
+    <p><strong>📍 Location:</strong> Rajamahendravaram, Andhra Pradesh, India</p>
+  </div>
 
-  <!-- Optional Form JavaScript -->
-  <script>
-    function submitContactForm(event) {
-      event.preventDefault();
-      document.getElementById("form-response").textContent = "✅ Thank you! Your message has been sent.";
-      event.target.reset();
-    }
-  </script>
+  <!-- Form -->
+  <form class="contact-form" onsubmit="submitContact(event)">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit" class="button">Send Message</button>
+    <p id="form-response" style="color:green;margin-top:10px;"></p>
+  </form>
+
+</section>
+
+<!-- WhatsApp Floating -->
+<a href="https://wa.me/919966191975" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <p>&copy; 2025 Siveera Collections</p>
+  <p>📞 <a href="https://wa.me/919966191975" style="color:#D66D8F;">WhatsApp</a> |
+     📸 <a href="https://instagram.com/siveeracollections" style="color:#D66D8F;">Instagram</a></p>
+</footer>
+
+<script>
+function submitContact(event){
+  event.preventDefault();
+  document.getElementById("form-response").textContent="Thank you 💖 We will contact you shortly!";
+  event.target.reset();
+}
+</script>
 
 </body>
 </html>
