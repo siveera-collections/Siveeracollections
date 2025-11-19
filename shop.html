@@ -3,488 +3,316 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop | Siveera Collection's</title>
+  <title>Shop | Siveera Collections</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://siveera-collections.github.io/Siveeracollections/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="https://siveera-collections.github.io/Siveeracollections/favicon.png" />
-
-  <!-- Styles and Fonts -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
 
   <style>
-    .category-title {
-      text-align: center;
-      color: #e91e63;
-      font-size: 2rem;
-      margin-top: 40px;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
+/* ======= PAGE BANNER ======= */
+.page-banner {
+  margin-top: 85px;
+  text-align: center;
+  padding: 35px 10px;
+  background: #FFF1EC;
+}
+.page-banner h1 { font-size: 2.4rem; color:#C07C85; font-weight: 700; }
+.page-banner p { color:#7A575C; font-size:1.05rem; }
 
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
+/* ======= FILTER BAR ======= */
+.filter-bar {
+  max-width:1200px;
+  margin:20px auto;
+  padding:15px 20px;
+  display:flex;
+  gap:15px;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
 
-    .product-card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 15px;
-      max-width: 250px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+.filter-bar input {
+  flex:1;
+  padding:12px 18px;
+  border-radius:50px;
+  border:1px solid #E8C4A9;
+  font-size:1rem;
+  outline:none;
+}
 
-    .product-card img {
-      width: 100%;
-      border-radius: 10px;
-    }
+.filter-bar select {
+  padding:12px 18px;
+  border-radius:50px;
+  border:1px solid #E8C4A9;
+  background:#fff;
+  font-size:1rem;
+}
 
-    .price {
-      font-size: 18px;
-      color: #333;
-      margin: 10px 0;
-    }
+/* ======= PRODUCT GRID ======= */
+.product-grid {
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  gap:22px;
+  padding:25px 20px 90px;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+}
 
-    .add-to-cart {
-      background-color: #e91e63;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+.product-card {
+  background:white;
+  border-radius:15px;
+  border:1px solid #F3D7C8;
+  overflow:hidden;
+  text-align:center;
+  padding-bottom:12px;
+  transition:.35s;
+  position:relative;
+}
+.product-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 0 20px rgba(232,196,169,0.45);
+}
 
-    .add-to-cart:hover {
-      background-color: #c2185b;
-    }
+.product-card img {
+  width:100%; height:260px; object-fit:cover;
+}
 
-    .page-banner {
-      text-align: center;
-      padding: 40px 10px 20px;
-      background: #f9f3f4;
-    }
+.product-card h3 {
+  font-size:1.05rem;
+  margin:8px 0;
+  color:#2A2A2A;
+}
+.price { color:#C07C85; font-size:1.25rem; font-weight:700; }
 
-    .page-banner h1 {
-      color: #e91e63;
-      font-size: 2.5rem;
-    }
+/* wishlist */
+.wishlist-icon {
+  position:absolute;
+  top:12px; right:12px;
+  font-size:1.3rem;
+  color:#C07C85;
+  cursor:pointer;
+}
 
-    .page-banner p {
-      font-size: 1rem;
-      color: #444;
-    }
+/* toast */
+#toast {
+  position:fixed;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:12px 25px;
+  background:#D66D8F;
+  color:white;
+  border-radius:50px;
+  display:none;
+  animation:fadeInOut 1.8s ease forwards;
+  z-index:2000;
+}
+@keyframes fadeInOut {
+  0%{opacity:0;} 10%{opacity:1;} 90%{opacity:1;} 100%{opacity:0;}
+}
+
+/* ======== CART DRAWER ======== */
+.cart-drawer {
+  position:fixed;
+  top:0; right:-420px;
+  width:380px;
+  height:100vh;
+  background:white;
+  box-shadow:-4px 0 25px rgba(0,0,0,0.2);
+  transition:.45s ease;
+  z-index:3000;
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-drawer.open { right:0; }
+
+.cart-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+  font-weight:700;
+  font-size:1.3rem;
+  color:#C07C85;
+}
+
+.cart-item {
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
+  border-bottom:1px solid #F3D7C8;
+  padding-bottom:10px;
+}
+.cart-item img { width:70px; height:70px; object-fit:cover; border-radius:8px; }
+
+.cart-controls button {
+  border:none; padding:5px 12px;
+  border-radius:6px;
+  background:#EEE;
+  cursor:pointer;
+}
+
+.cart-footer {
+  margin-top:auto;
+  text-align:center;
+}
+
+/* overlay background */
+.cart-overlay {
+  position:fixed; inset:0;
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(2px);
+  display:none;
+  z-index:2000;
+}
+.cart-overlay.show { display:block; }
+
+
   </style>
 </head>
 
 <body>
-  <!-- Header -->
-  <div id="header-placeholder"></div>
-  <script>
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header-placeholder").innerHTML = data;
-      });
-  </script>
 
-  <!-- Page Banner -->
-  <section class="page-banner">
-    <h1>All Sarees</h1>
-    <p>Browse by style and fabric</p>
-  </section>
+<!-- Header load -->
+<div id="header-placeholder"></div>
+<script>
+fetch("header.html").then(r=>r.text()).then(d=>{document.getElementById("header-placeholder").innerHTML=d;});
+</script>
 
+<!-- Banner -->
+<div class="page-banner">
+  <h1>All Sarees</h1>
+  <p>Premium Collections • Best Prices</p>
+</div>
 
-  <!-- Chiffon Zari Border Sarees -->
-  <section class="category-section">
-    <h2 class="category-title">Chiffon Zari Border Sarees</h2>
-    <div class="category-grid">
-       <section class="product-section">
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="chiffon1.jpg" alt="Saree 1">
-        <h3>Olive Green Chiffon Zari Border</h3>
-        <p class="price">₹799</p>
-        <button class="add-to-cart" onclick="addToCart('Olive Green Chiffon Zari Border', 799, 'chiffon1.jpg')">Add to Cart</button>
-      </div>
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <input type="text" id="searchBox" placeholder="Search Sarees...">
+  <select id="sortSelect">
+    <option value="default">Sort</option>
+    <option value="low">Price: Low → High</option>
+    <option value="high">Price: High → Low</option>
+  </select>
+</div>
 
-      <div class="product-card">
-        <img src="chiffon2.jpg" alt="Saree 2">
-        <h3>Black Chiffon Zari Border</h3>
-        <p class="price">₹799</p>
-        <button class="add-to-cart" onclick="addToCart('Black Chiffon Zari Border', 799, 'chiffon2.jpg')">Add to Cart</button>
-      </div>
+<!-- Product Grid -->
+<div class="product-grid" id="productGrid">
+  <!-- JS will dynamically load products here -->
+</div>
 
-      <div class="product-card">
-        <img src="chiffon3.jpg" alt="Saree 3">
-        <h3>Violet Chiffon Zari Border</h3>
-        <p class="price">₹799</p>
-        <button class="add-to-cart" onclick="addToCart('Violet Chiffon Zari Border', 799, 'chiffon3.jpg')">Add to Cart</button>
-      </div>
+<!-- Toast -->
+<div id="toast">Added to Cart</div>
 
-      <div class="product-card">
-        <img src="chiffon4.jpg" alt="Saree 4">
-        <h3>Maroon Chiffon Zari Border</h3>
-        <p class="price">₹799</p>
-        <button class="add-to-cart" onclick="addToCart('Maroon Chiffon Zari Border', 799, 'chiffon4.jpg')">Add to Cart</button>
-      </div>
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="overlay"></div>
 
-      <div class="product-card">
-        <img src="chiffon5.jpg" alt="Saree 5">
-        <h3>Dark Green Chiffon Zari Border</h3>
-        <p class="price">₹799</p>
-        <button class="add-to-cart" onclick="addToCart('Dark Green Chiffon Zari Border', 799, 'chiffon5.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="chiffon6.jpg" alt="Saree 6">
-        <h3>Pink Chiffon Zari Border</h3>
-        <p class="price">₹799</p>
-        <button class="add-to-cart" onclick="addToCart('Pink Chiffon Zari Border', 799, 'chiffon6.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="chiffon7.jpg" alt="Saree 7">
-        <h3>Blue Chiffon Zari Border</h3>
-        <p class="price">₹799</p>
-        <button class="add-to-cart" onclick="addToCart('Blue Chiffon Zari Border', 799, 'chiffon7.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="chiffon8.jpg" alt="Saree 8">
-        <h3>Gold Chiffon Zari Border</h3>
-        <p class="price">₹799</p>
-        <button class="sold-out" disabled>Sold Out</button>
-      </div>
-    </div>
-  </section>
-    </div>
-  </section>
-
-  <!-- Lenin Cotton Sarees -->
-  <section class="category-section">
-    <h2 class="category-title">Lenin Cotton Sarees</h2>
-    <div class="category-grid">
-     <div class="product-grid">
-      <div class="product-card">
-        <img src="leninblue.jpg" alt="Printed Skyblue Lenin Saree">
-        <h3>Printed Skyblue Lenin Saree</h3>
-        <p class="price">₹849</p>
-        <button class="btn" onclick="addToCart('Printed Skyblue Lenin Saree', 849, 'leninblue.jpg')">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="leninyellow.jpg" alt="Printed Yellow Lenin Saree">
-        <h3>Printed Yellow Lenin Saree</h3>
-        <p class="price">₹849</p>
-      <button class="btn" onclick="addToCart('Printed Yellow Lenin Saree', 849, 'leninyellow.jpg')">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="leningreen.jpg" alt="Lux Green Lenin Printed Saree">
-        <h3>Lux Green Lenin Printed Saree</h3>
-        <p class="price">₹849</p>
-        <button class="sold-out" disabled>Sold Out</button>
-      </div>
-      <div class="product-card">
-        <img src="leninpink.jpg" alt="Floral Pink Printed Lenin Saree">
-        <h3>Floral Pink Printed Lenin Saree</h3>
-        <p class="price">₹849</p>
-        <button class="btn" onclick="addToCart('Floral Pink Printed Lenin Saree', 849, 'leninpink.jpg')">Add to Cart</button>
-      </div>
-    </div>
-  </section>
-    </div>
-  </section>
-
-  <!-- Banarasi Fancy Pattu Sarees -->
-  <section class="category-section">
-    <h2 class="category-title">Banarasi Fancy Pattu Sarees</h2>
-    <div class="category-grid">
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="banarasipinkNEW.jpg" alt="Saree 1">
-          <h3>Pink with Silver and Black Border</h3>
-          <p class="price">₹1,199</p>
-          <button class="btn" onclick="addToCart('Pink with Silver and Black Border', 1199, 'banarasipinkNEW.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product-card">
-          <img src="aquablueNEW.jpg" alt="Saree 2">
-          <h3>Aqua Blue with Purple Border</h3>
-          <p class="price">₹1,199</p>
-          <button class="btn" onclick="addToCart('Aqua Blue with Purple Border', 1199, 'aquablueNEW.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product-card">
-          <img src="purpleNEW.jpg" alt="Saree 3">
-          <h3>Purple with Green Border</h3>
-          <p class="price">₹1,199</p>
-          <button class="sold-out" disabled>Sold Out</button>
-        </div>
-
-        <div class="product-card">
-          <img src="aquablueNEW2.jpg" alt="Saree 4">
-          <h3>Purple with Green Border (Model 2)</h3>
-          <p class="price">₹1,199</p>
-          <button class="btn" onclick="addToCart('Purple with Green Border (Model 2)', 1199, 'aquablueNEW2.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product-card">
-          <img src="purpleNEW3.jpg" alt="Saree 5">
-          <h3>Purple with Dark Blue Border (Model 2)</h3>
-          <p class="price">₹1,199</p>
-           <button class="sold-out" disabled>Sold Out</button>
-        </div>
-
-        <div class="product-card">
-          <img src="pinkNEW2.jpg" alt="Saree 6">
-          <h3>Pink with Silver and Black Border (Model 2)</h3>
-          <p class="price">₹1,199</p>
-          <button class="btn" onclick="addToCart('Pink with Silver and Black Border (Model 2)', 1199, 'pinkNEW2.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product-card">
-          <img src="redNEW.jpg" alt="Saree 7">
-          <h3>Red with Silver and Green Border</h3>
-          <p class="price">₹1,199</p>
-           <button class="sold-out" disabled>Sold Out</button>
-        </div>
-    </div>
-  </section>
-
-  <!-- Kalamkari Printed Sarees -->
-  <section class="category-section">
-    <h2 class="category-title">Kalamkari Printed Sarees</h2>
-    <div class="category-grid">
-       <div class="category-item">
-        <img src="kalamkari1.jpg" alt="Purple Kalamkari Printed Saree" />
-        <h3>Purple Kalamkari Printed Saree</h3>
-        <p>₹1,049</p>
-        <button class="sold-out" disabled>Sold Out</button>
-      </div>
-
-      <div class="category-item">
-        <img src="kalamkari2.jpg" alt="Maroon Kalamkari Printed Saree" />
-        <h3>Maroon Kalamkari Printed Saree</h3>
-        <p>₹1,049</p>
-        <button class="add-to-cart" onclick="addToCart('Maroon Kalamkari Saree', 1049, 'kalamkari2.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="category-item">
-        <img src="kalamkari3.jpg" alt="Ash Shade Kalamkari Printed Saree" />
-        <h3>Ash Shade Kalamkari Printed Saree</h3>
-        <p>₹1,049</p>
-        <button class="add-to-cart" onclick="addToCart('Ash Shade Kalamkari Saree', 1049, 'kalamkari3.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="category-item">
-        <img src="kalamkari4.jpg" alt="Green Kalamkari Printed Saree" />
-        <h3>Green Kalamkari Printed Saree</h3>
-        <p>₹1,049</p>
-        <button class="add-to-cart" onclick="addToCart('Green Kalamkari Saree', 1049, 'kalamkari4.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="category-item">
-        <img src="kalamkari5.jpg" alt="Magenta Kalamkari Printed Saree" />
-        <h3>Magenta Kalamkari Printed Saree</h3>
-        <p>₹1,049</p>
-        <button class="add-to-cart" onclick="addToCart('Magenta Kalamkari Saree', 1049, 'kalamkari5.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="category-item">
-        <img src="kalamkari6.jpg" alt="Violet Kalamkari Printed Saree" />
-        <h3>Violet Kalamkari Printed Saree</h3>
-        <p>₹1,049</p>
-        <button class="sold-out" disabled>Sold Out</button>
-      </div>
-
-      <div class="category-item">
-        <img src="kalamkari7.jpg" alt="Light Blue Kalamkari Printed Saree" />
-        <h3>Light Blue Kalamkari Printed Saree</h3>
-        <p>₹1,049</p>
-        <button class="add-to-cart" onclick="addToCart('Light Blue Kalamkari Saree', 1049, 'kalamkari7.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="category-item">
-        <img src="kalamkari8.jpg" alt="Intricate Gold Border Kalamkari Saree" />
-        <h3>Intricate Gold Border Kalamkari Saree</h3>
-        <p>₹1,049</p>
-        <button class="add-to-cart" onclick="addToCart('Intricate Gold Border Kalamkari Saree', 1049, 'kalamkari8.jpg')">Add to Cart</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Dola Silk Sarees -->
-  <section class="category-section">
-    <h2 class="category-title">Dola Silk Sarees</h2>
-    <div class="category-grid">
-      <div class="product-card">
-        <img src="dola1.jpg" alt="Saree 1">
-        <h3>Olive Green Dola Silk Saree</h3>
-        <p class="price">₹749</p>
-        <button class="add-to-cart" onclick="addToCart('Olive Green Dola Silk Saree', 749, 'dola1.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dola2.jpg" alt="Saree 2">
-        <h3>Pink Dola Silk Saree</h3>
-        <p class="price">₹749</p>
-         <button class="sold-out" disabled>Sold Out</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dola3.jpg" alt="Saree 3">
-        <h3>Baby Pink Dola Silk Saree</h3>
-        <p class="price">₹749</p>
-        <button class="add-to-cart" onclick="addToCart('Baby Pink Dola Silk Saree', 749, 'dola3.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dola4.jpg" alt="Saree 4">
-        <h3>Jade Green Dola Silk Saree</h3>
-        <p class="price">₹749</p>
-        <button class="add-to-cart" onclick="addToCart('Jade Green Dola Silk Saree', 749, 'dola4.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dola5.jpg" alt="Saree 5">
-        <h3>Aqua Blue Dola Silk Saree</h3>
-        <p class="price">₹749</p>
-        <button class="add-to-cart" onclick="addToCart('Aqua Blue Dola Silk Saree', 749, 'dola5.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dola6.jpg" alt="Saree 6">
-        <h3>Leaf Green Dola Silk Saree</h3>
-        <p class="price">₹749</p>
-        <button class="add-to-cart" onclick="addToCart('Leaf Green Dola Silk Saree', 749, 'dola6.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dola7.jpg" alt="Saree 7">
-        <h3>Mustard Yellow Dola Silk Saree</h3>
-        <p class="price">₹749</p>
-        <button class="add-to-cart" onclick="addToCart('Mustard Yellow Dola Silk Saree', 749, 'dola7.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dola8.jpg" alt="Saree 8">
-        <h3>Violet Dola Silk Saree</h3>
-        <p class="price">₹749</p>
-        <button class="add-to-cart" onclick="addToCart('Violet Dola Silk Saree', 749, 'dola8.jpg')">Add to Cart</button>
-      </div>
-      
-      <div class="product-card">
-        <img src="dolaa1.jpg" alt="Saree 9">
-        <h3>Purple Semi Border</h3>
-        <p class="price">₹649</p>
-        <button class="add-to-cart" onclick="addToCart('Purple Semi Border', 649, 'dolaa1.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dolaa2.jpg" alt="Saree 10">
-        <h3>Violet Semi Border</h3>
-        <p class="price">₹649</p>
-        <button class="sold-out" disabled>Sold Out</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dolaa3.jpg" alt="Saree 11">
-        <h3>Olive Green Semi Border</h3>
-        <p class="price">₹649</p>
-        <button class="add-to-cart" onclick="addToCart('Olive Green Semi Border', 649, 'dolaa3.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dolaa4.jpg" alt="Saree 12">
-        <h3>Pink Semi Border</h3>
-        <p class="price">₹649</p>
-        <button class="add-to-cart" onclick="addToCart('Pink Semi Border', 649, 'dolaa4.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dolaa5.jpg" alt="Saree 13">
-        <h3>Mustard Yellow Semi Border</h3>
-        <p class="price">₹649</p>
-        <button class="add-to-cart" onclick="addToCart('Mustard Yellow Semi Border', 649, 'dolaa5.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dolaa6.jpg" alt="Saree 14">
-        <h3>Blue Semi Border</h3>
-        <p class="price">₹649</p>
-        <button class="add-to-cart" onclick="addToCart('Blue Semi Border', 649, 'dolaa6.jpg')">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dolaa7.jpg" alt="Saree 15">
-        <h3>Red Semi Border</h3>
-        <p class="price">₹649</p>
-        <button class="sold-out" disabled>Sold Out</button>
-      </div>
-
-      <div class="product-card">
-        <img src="dolaa8.jpg" alt="Saree 16">
-        <h3>Violet Semi Border</h3>
-        <p class="price">₹649</p>
-        <button class="add-to-cart" onclick="addToCart('Violet Semi Border', 649, 'dolaa8.jpg')">Add to Cart</button>
-      </div>
-    </div>
-  </section>
-
-<!-- Footer -->
-<footer class="site-footer" style="text-align: center; padding: 30px 10px; background-color: #f4f4f4; margin-top: 40px;">
-  <p style="margin: 5px 0;">&copy; 2025 Siveera Collection's</p>
-  <p>
-    📞 WhatsApp: <a href="https://wa.me/919966191975" style="color: #e91e63;">9966191975</a> |
-    📸 Instagram: <a href="https://instagram.com/siveeracollections" style="color: #e91e63;">@siveeracollections</a>
-  </p>
-</footer>
-
-<div id="toast" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #e91e63; color: white; padding: 10px 20px; border-radius: 6px; display: none; z-index: 9999;">
-  Added to cart!
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <span>Your Cart</span>
+    <i class="fas fa-times" id="closeCart" style="cursor:pointer;"></i>
+  </div>
+  <div id="cartItems"></div>
+  <div class="cart-footer">
+    <h3 id="cartTotal"></h3>
+    <a href="cart.html" class="btn-pill" style="margin-top:12px;">Checkout</a>
+  </div>
 </div>
 
 <script>
-  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+// ===== PRODUCT DATA =====
+const products = [
+  {name:"Olive Chiffon", price:799, image:"chiffon1.jpg"},
+  {name:"Black Chiffon", price:799, image:"chiffon2.jpg"},
+  {name:"Violet Chiffon", price:799, image:"chiffon3.jpg"},
+  {name:"Maroon Chiffon", price:799, image:"chiffon4.jpg"},
+  {name:"Dark Green Chiffon", price:799, image:"chiffon5.jpg"},
+  {name:"Pink Chiffon", price:799, image:"chiffon6.jpg"},
+  {name:"Purple Banarasi", price:1199, image:"purpleNEW.jpg"},
+  {name:"Aqua Blue Banarasi", price:1199, image:"aquablueNEW.jpg"},
+];
 
-  function addToCart(name, price, image) {
-    const existing = cartItems.find(item => item.name === name);
-    if (existing) {
-      existing.quantity += 1;
-    } else {
-      cartItems.push({ name, price, image, quantity: 1 });
-    }
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    updateCartCount();
-    showToast();
-  }
-
-  function updateCartCount() {
-    const count = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-    const countSpan = document.getElementById("cart-count");
-    if (countSpan) countSpan.innerText = count;
-  }
-
-  function showToast() {
-    const toast = document.getElementById("toast");
-    if (toast) {
-      toast.style.display = "block";
-      setTimeout(() => toast.style.display = "none", 1500);
-    }
-  }
-
-  // Initialize count when page loads
-  document.addEventListener("DOMContentLoaded", () => {
-    updateCartCount();
+// RENDER PRODUCTS
+function loadProducts(list){
+  const grid=document.getElementById("productGrid");
+  grid.innerHTML="";
+  list.forEach(p=>{
+    grid.innerHTML += `
+      <div class="product-card">
+        <i class="far fa-heart wishlist-icon"></i>
+        <img src="${p.image}">
+        <h3>${p.name}</h3>
+        <p class="price">₹${p.price}</p>
+        <button onclick="addToCart('${p.name}',${p.price},'${p.image}')" class="btn-pill">Add to Cart</button>
+      </div>`;
   });
+}
+loadProducts(products);
+
+// CART LOGIC
+let cartItems = JSON.parse(localStorage.getItem("cartItems")||"[]");
+
+function addToCart(name,price,image){
+  const existing=cartItems.find(i=>i.name===name);
+  existing? existing.quantity++ : cartItems.push({name,price,image,quantity:1});
+  localStorage.setItem("cartItems",JSON.stringify(cartItems));
+  showToast();
+}
+
+function showToast(){
+  const t=document.getElementById("toast");
+  t.style.display="block";
+  setTimeout(()=>{ t.style.display="none"; },1600);
+}
+
+// CART DRAWER
+const cartIcon = document.querySelector(".cart-icon");
+const drawer = document.getElementById("cartDrawer");
+const overlay = document.getElementById("overlay");
+
+document.addEventListener("click", e=>{
+  if(e.target.closest(".cart-icon")) openCart();
+  if(e.target.id==="closeCart" || e.target===overlay) closeCart();
+});
+
+function openCart(){ drawer.classList.add("open"); overlay.classList.add("show"); renderCart(); }
+function closeCart(){ drawer.classList.remove("open"); overlay.classList.remove("show"); }
+
+function renderCart(){
+  const box=document.getElementById("cartItems");
+  const total=document.getElementById("cartTotal");
+  if(cartItems.length===0){ box.innerHTML="<p>No items in cart</p>"; total.innerHTML=""; return; }
+  let sum=0;
+  box.innerHTML="";
+  cartItems.forEach((i,idx)=>{
+    sum+=i.price*i.quantity;
+    box.innerHTML+=`
+      <div class="cart-item">
+       <img src="${i.image}"/>
+       <div style="flex:1;">${i.name}<br>₹${i.price} × ${i.quantity}</div>
+       <div>
+        <button onclick="dec(${idx})">-</button>
+        <button onclick="inc(${idx})">+</button>
+        <button onclick="del(${idx})" style="background:#ff4d4d;color:white;border:none;padding:6px 10px;border-radius:6px;">x</button>
+       </div>
+      </div>`;
+  });
+  total.innerHTML="Total: ₹"+sum;
+}
+
+function inc(i){ cartItems[i].quantity++; save(); }
+function dec(i){ cartItems[i].quantity>1? cartItems[i].quantity-- : cartItems.splice(i,1); save(); }
+function del(i){ cartItems.splice(i,1); save(); }
+
+function save(){
+  localStorage.setItem("cartItems",JSON.stringify(cartItems));
+  renderCart();
+}
+
 </script>
-
-
-
-
+</body>
+</html>
