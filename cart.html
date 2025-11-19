@@ -3,222 +3,230 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart | Siveera Collection's</title>
-  <meta name="description" content="View and manage your cart - Siveera Collection's." />
-  <meta name="keywords" content="Siveera Collection, cart, sarees, ethnic wear, Indian fashion" />
-  <meta name="author" content="Siveera Collection's" />
-  <link rel="icon" href="favicon.ico" />
+  <title>Cart | Siveera Collections</title>
+
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
+
   <style>
-    body {
-      font-family: 'Urbanist', sans-serif;
-      margin: 0;
-      background-color: #fff;
-    }
+.cart-wrapper {
+  max-width: 1100px;
+  margin: 100px auto 60px;
+  padding: 20px;
+}
 
-    .cart-container {
-      max-width: 1100px;
-      margin: 90px auto 40px;
-      padding: 20px;
-    }
+.cart-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #C07C85;
+  margin-bottom: 25px;
+  text-align:center;
+}
 
-    .card {
-      border: 1px solid #ddd;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      margin-bottom: 30px;
-      background: #fff;
-    }
+.cart-box {
+  background:#FFF7F2;
+  padding: 25px;
+  border-radius: 12px;
+  border:1px solid #E8C4A9;
+  box-shadow:0 0 20px rgba(214,109,143,0.15);
+}
 
-    .btn {
-      background-color: #e91e63;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+.cart-item {
+  display:flex;
+  gap:15px;
+  padding:15px;
+  border-bottom:1px solid #F5D9CA;
+  margin-bottom:10px;
+}
+.cart-item img {
+  width:80px; height:80px; border-radius:10px;
+  object-fit:cover;
+}
+.cart-item div { flex:1; }
 
-    .whatsapp-btn {
-      background-color: #25D366;
-    }
+.cart-controls {
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.cart-controls button {
+  border:none; background:#eee;
+  padding:8px 12px;
+  border-radius:6px; cursor:pointer;
+  font-size:16px;
+}
+.remove-btn { background:#ff4d4d!important; color:white; }
 
-    .cart-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      background: #f9f9f9;
-      padding: 12px;
-      border-radius: 10px;
-    }
+/* Summary */
+.cart-summary {
+  margin-top:25px;
+  text-align:center;
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  border:1px solid #F2C9B3;
+}
+.cart-summary h3 {
+  color:#C07C85;
+  font-size:1.4rem;
+  margin-bottom:18px;
+}
+.btn-pill {
+  display:inline-block;
+  padding:12px 35px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#E8C4A9,#D66D8F);
+  color:white; font-weight:700;
+  text-decoration:none;
+  font-size:1.15rem;
+  margin:10px;
+}
 
-    .cart-item img {
-      width: 70px;
-      height: 70px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-right: 15px;
-    }
+/* Billing & Payment */
+form input {
+  width:100%;
+  padding:14px 18px;
+  border-radius:10px;
+  border:1px solid #E8C4A9;
+  margin:8px 0;
+}
 
-    .cart-item-details {
-      flex: 1;
-    }
+/* Empty cart design */
+.empty-cart {
+  text-align:center;
+  padding:60px 10px;
+}
+.empty-cart i {
+  font-size:4rem;
+  color:#D66D8F;
+  margin-bottom:15px;
+}
 
-    .cart-controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .cart-controls button {
-      padding: 6px 12px;
-      font-size: 16px;
-      background-color: #eee;
-      border: none;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-
-    .cart-controls .remove-btn {
-      background-color: #ff4444;
-      color: white;
-    }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <div id="header-placeholder"></div>
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-      });
-  </script>
 
-  <div class="cart-container">
-    <div id="cart-display"></div>
+<!-- Header -->
+<div id="header-placeholder"></div>
+<script>
+fetch("header.html").then(r=>r.text()).then(d=>document.getElementById("header-placeholder").innerHTML=d);
+</script>
 
-    <!-- Billing Section -->
-    <div id="billing-form" class="billing-form card" style="display: none;">
-      <h2 style="color: #e91e63; text-align: center; margin-bottom: 20px;">Step 1: Enter Billing Details</h2>
-      <form onsubmit="showPaymentSection(event)" style="display: flex; flex-direction: column; gap: 15px;">
-        <input type="text" id="name" placeholder="Full Name" required>
-        <input type="text" id="city" placeholder="Full Address" required>
-        <input type="tel" id="phone1" placeholder="Mobile Number (Primary)" required>
-        <input type="tel" id="phone2" placeholder="Mobile Number (Alternate)">
-        <input type="email" id="email" placeholder="Email Address" required>
-        <button type="submit" class="btn">Next</button>
-      </form>
-    </div>
+<div class="cart-wrapper">
+  <h1 class="cart-title">Your Cart</h1>
 
-    <!-- Payment Section -->
-    <div id="payment-form" class="payment-form card" style="display: none;">
-      <h2 style="color: #e91e63; text-align: center; margin-bottom: 20px;">Step 2: Confirm Payment</h2>
-      <p style="text-align: center;">Scan the QR code using your UPI app</p>
-      <div style="text-align: center;">
-        <img src="siveerapayments.jpg" alt="QR Code" style="max-width: 200px; border-radius: 8px;">
-      </div>
-      <p style="text-align: center; color: #555;">After payment, confirm your order below.</p>
-      <div style="text-align: center;">
-        <button onclick="placeOrder()" class="btn" style="background-color: #4caf50;">Confirm Payment</button>
-      </div>
-      <div style="text-align: center; margin-top: 15px;">
-        <a class="btn whatsapp-btn" href="https://wa.me/919966191975?text=I%20have%20placed%20my%20order%20and%20paid." target="_blank">Upload Screenshot via WhatsApp</a>
-      </div>
-      <p id="confirmation-message" style="color: green; font-weight: bold; text-align: center; margin-top: 20px;"></p>
-    </div>
+  <div class="cart-box" id="cart-display"></div>
+
+  <div class="cart-summary" id="summary-box" style="display:none;">
+    <h3>Order Summary</h3>
+    <p id="summary-total" style="font-size:1.3rem;font-weight:700;"></p>
+
+    <button class="btn-pill" onclick="showBilling()">Continue to Checkout</button>
+    <a href="shop.html" class="btn-pill" style="background:#C07C85;">Continue Shopping</a>
   </div>
 
-  <script>
-    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    let orderData = {};
+  <!-- Billing Form -->
+  <div id="billing-form" style="display:none;" class="cart-box">
+    <h2 style="text-align:center;color:#C07C85;">Billing Details</h2>
+    <form onsubmit="showPayment(event)">
+      <input id="name" type="text" placeholder="Full Name" required>
+      <input id="address" type="text" placeholder="Full Address" required>
+      <input id="phone" type="tel" placeholder="Mobile Number" required>
+      <input id="email" type="email" placeholder="Email Address">
+      <button class="btn-pill" type="submit">Next</button>
+    </form>
+  </div>
 
-    function updateCartStorage() {
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      showCart();
-    }
+  <!-- Payment -->
+  <div id="payment-form" style="display:none;" class="cart-box">
+    <h2 style="text-align:center;color:#C07C85;">Payment</h2>
+    <p style="text-align:center;">Scan the QR code below to pay</p>
+    <img src="siveerapayments.jpg" style="display:block;margin:auto;width:200px;border-radius:12px;">
+    <br>
+    <button onclick="confirmOrder()" class="btn-pill" style="background:#4CAF50;">Confirm Payment</button>
+    <a class="btn-pill whatsapp-btn" style="background:#25D366;"
+       href="#" id="whatsappLink" target="_blank">Upload Screenshot & Confirm</a>
+    <p id="doneMsg" style="margin-top:15px;text-align:center;color:#4CAF50;font-weight:700;"></p>
+  </div>
 
-    function increaseQuantity(index) {
-      cartItems[index].quantity += 1;
-      updateCartStorage();
-    }
+</div>
 
-    function decreaseQuantity(index) {
-      if (cartItems[index].quantity > 1) {
-        cartItems[index].quantity -= 1;
-        updateCartStorage();
-      } else {
-        removeItem(index);
-      }
-    }
+<script>
+let cartItems = JSON.parse(localStorage.getItem("cartItems")||"[]");
 
-    function removeItem(index) {
-      cartItems.splice(index, 1);
-      updateCartStorage();
-    }
+function showCart(){
+  const box=document.getElementById("cart-display");
+  const sumBox=document.getElementById("summary-box");
 
-    function showCart() {
-      const cartDiv = document.getElementById("cart-display");
-      if (cartItems.length === 0) {
-        cartDiv.innerHTML = "<h2 style='text-align:center;'>Your cart is empty.</h2>";
-        return;
-      }
+  if(cartItems.length===0){
+    box.innerHTML=`
+      <div class='empty-cart'>
+        <i class="fa-solid fa-bag-shopping"></i>
+        <h2>Cart is Empty</h2>
+        <a href="shop.html" class="btn-pill">Shop Now</a>
+      </div>`;
+    sumBox.style.display="none";
+    return;
+  }
 
-      let total = 0;
-      let html = "<h2 style='color:#e91e63;'>Your Cart</h2>";
-      cartItems.forEach((item, index) => {
-        total += item.price * item.quantity;
-        html += `
-          <div class="cart-item">
-            <img src="${item.image || 'placeholder.jpg'}" alt="${item.name}" />
-            <div class="cart-item-details">
-              <strong>${item.name}</strong><br>
-              ₹${item.price} × ${item.quantity} = ₹${item.price * item.quantity}
-            </div>
-            <div class="cart-controls">
-              <button onclick="decreaseQuantity(${index})">−</button>
-              <button onclick="increaseQuantity(${index})">+</button>
-              <button class="remove-btn" onclick="removeItem(${index})">DELETE</button>
-            </div>
-          </div>`;
-      });
+  sumBox.style.display="block";
+  let total=0;
+  box.innerHTML="";
+  cartItems.forEach((i,index)=>{
+    total+=i.price*i.quantity;
+    box.innerHTML += `
+      <div class="cart-item">
+        <img src="${i.image}">
+        <div><b>${i.name}</b><br>₹${i.price} × ${i.quantity}</div>
+        <div class="cart-controls">
+          <button onclick="dec(${index})">-</button>
+          <button onclick="inc(${index})">+</button>
+          <button class="remove-btn" onclick="del(${index})">x</button>
+        </div>
+      </div>
+    `;
+  });
 
-      html += `<p style='font-weight:bold;'>Total: ₹${total}</p>`;
-      html += `<button class="btn" onclick="proceedToPayment()">Proceed to Payment</button>`;
-      cartDiv.innerHTML = html;
-    }
+  document.getElementById("summary-total").innerText = "Total Amount: ₹" + total;
+}
 
-    function proceedToPayment() {
-      document.getElementById("billing-form").style.display = "block";
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
+function save(){ localStorage.setItem("cartItems",JSON.stringify(cartItems)); showCart(); }
+function inc(i){ cartItems[i].quantity++; save(); }
+function dec(i){ cartItems[i].quantity>1? cartItems[i].quantity-- : cartItems.splice(i,1); save(); }
+function del(i){ cartItems.splice(i,1); save(); }
 
-    function showPaymentSection(e) {
-      e.preventDefault();
-      orderData.name = document.getElementById("name").value;
-      orderData.city = document.getElementById("city").value;
-      orderData.phone1 = document.getElementById("phone1").value;
-      orderData.phone2 = document.getElementById("phone2").value;
-      orderData.email = document.getElementById("email").value;
-      document.getElementById("billing-form").style.display = "none";
-      document.getElementById("payment-form").style.display = "block";
-    }
+function showBilling(){
+  document.getElementById("billing-form").style.display="block";
+  window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+}
 
-    function placeOrder() {
-      const orderSummary = cartItems.map(i => `${i.name} - ₹${i.price} × ${i.quantity}`).join('%0A');
-      const total = cartItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
-      const msg = `🛍️ *New Order Received*%0A%0A👤 Name: ${orderData.name}%0A🏡 Address: ${orderData.city}%0A📞 Phone 1: ${orderData.phone1}%0A📞 Phone 2: ${orderData.phone2}%0A📧 Email: ${orderData.email}%0A%0A🧾 *Order:*%0A${orderSummary}%0A💰 *Total: ₹${total}*%0APayment Confirmed`;
-      window.open(`https://wa.me/919966191975?text=${msg}`, "_blank");
-      document.getElementById("confirmation-message").innerText = "Payment is Validating... Please upload payment screenshot via WhatsApp.";
-      cartItems = [];
-      localStorage.removeItem("cartItems");
-    }
+function showPayment(e){
+  e.preventDefault();
+  document.getElementById("billing-form").style.display="none";
+  document.getElementById("payment-form").style.display="block";
+  window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+}
 
-    document.addEventListener("DOMContentLoaded", showCart);
-  </script>
+function confirmOrder(){
+  const n=document.getElementById("name").value;
+  const ad=document.getElementById("address").value;
+  const p=document.getElementById("phone").value;
+  const total = cartItems.reduce((s,i)=>s+i.price*i.quantity,0);
+
+  const summary = cartItems.map(i=>`${i.name} - ₹${i.price} × ${i.quantity}`).join('%0A');
+
+  const msg = `🛍 *Order Details*%0A%0A👤 Name: ${n}%0A🏡 Address: ${ad}%0A📞 Phone: ${p}%0A%0A🧾 Items:%0A${summary}%0A%0A💰 Total: ₹${total}`;
+
+  document.getElementById("whatsappLink").href=`https://wa.me/919966191975?text=${msg}`;
+  document.getElementById("doneMsg").innerText = "Order Submitted! Upload payment screenshot.";
+  cartItems=[];
+  localStorage.removeItem("cartItems");
+}
+document.addEventListener("DOMContentLoaded",showCart);
+</script>
+
 </body>
 </html>
